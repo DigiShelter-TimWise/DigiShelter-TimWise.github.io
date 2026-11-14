@@ -7,24 +7,31 @@
   <title>Digi Shelter — Student-Led Advocacy | SMPN 193 Jakarta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     :root {
-      --ink: #112842;
-      --navy: #183a63;
-      --blue: #4d94e8;
-      --sky: #f2f7ff;
-      --sky-2: #fbfdff;
-      --coral: #ff6f61;
-      --mint: #31c6b5;
-      --gold: #f7c95b;
-      --muted: #66809c;
-      --line: #e2edf8;
+      /* PALET PASTEL AURORA KAWAII */
+      --ink: #253252;
+      --navy: #1e2d4f;
+      --aurora-blue: #6ea8fe;
+      --aurora-mint: #6be3c8;
+      --aurora-pink: #ff9ec7;
+      --aurora-lavender: #b8a4ff;
+      --aurora-butter: #ffe08a;
+      --aurora-coral: #ff8598;
+      --bg-base: #fdfaff;
+      --sky-soft: #eef6ff;
+      --mint-soft: #ebfbf7;
+      --pink-soft: #fff0f7;
+      --lavender-soft: #f3efff;
+      --butter-soft: #fff9e6;
+      --muted: #647494;
+      --line: #e4def7;
       --white: #ffffff;
-      --shadow: 0 20px 60px rgba(24, 58, 99, 0.08);
+      --shadow: 0 18px 45px rgba(133, 118, 214, 0.12);
       --radius-lg: 32px;
-      --radius-md: 20px;
+      --radius-md: 22px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +39,7 @@
     body {
       min-width: 320px;
       color: var(--ink);
-      background: var(--sky-2);
+      background: var(--bg-base);
       font-family: 'DM Sans', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
@@ -41,55 +48,144 @@
     button { font: inherit; }
     .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
 
+    /* TOPBAR DENGAN LOGO DIGI SHELTER */
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(24,58,99,.06);
-      background: rgba(255,255,255,.9);
-      backdrop-filter: blur(16px);
+      z-index: 30;
+      border-bottom: 1px solid rgba(184, 164, 255, 0.25);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(18px);
     }
     .nav {
-      min-height: 76px;
+      min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
-    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--navy); font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: .02em; }
-    .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: var(--white); background: linear-gradient(135deg, var(--blue), var(--mint)); box-shadow: 0 8px 20px rgba(77,148,232,.3); }
-    .brand small { display: block; color: var(--muted); font: 700 10px/1.1 'DM Sans', sans-serif; letter-spacing: .1em; margin-top: 2px; }
-    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: 13px; font-weight: 600; }
-    .nav-links a { transition: color .2s ease; }
-    .nav-links a:hover { color: var(--blue); }
-    .nav-cta { padding: 11px 18px; border-radius: 999px; color: var(--white); background: var(--navy); font-size: 13px; font-weight: 700; transition: transform .2s ease, background .2s ease; }
-    .nav-cta:hover { transform: translateY(-2px); background: var(--blue); }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+    }
+    /* Custom Scrapbook Logo Digi Shelter */
+    .brand-logo-badge {
+      position: relative;
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #c2e0ff 0%, #96c7f7 55%, #d6ecff 100%);
+      border: 2px solid #76b2ee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(110, 168, 254, 0.28);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .brand-logo-badge::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -25deg,
+        rgba(255,255,255,0.28) 0px,
+        rgba(255,255,255,0.28) 2px,
+        transparent 2px,
+        transparent 6px
+      );
+      pointer-events: none;
+    }
+    .logo-sparkles {
+      position: absolute;
+      top: 4px;
+      left: 5px;
+      display: flex;
+      gap: 2px;
+    }
+    .logo-sparkles span {
+      display: block;
+      width: 4px;
+      height: 8px;
+      background: #14539a;
+      border-radius: 99px;
+      transform: rotate(-28deg);
+    }
+    .logo-sparkles span:nth-child(2) { height: 10px; transform: rotate(-10deg); }
+    .logo-sparkles span:nth-child(3) { height: 7px; transform: rotate(12deg); }
+    .logo-swirl {
+      position: absolute;
+      top: 4px;
+      right: 5px;
+      font-size: 11px;
+      color: #14539a;
+      opacity: 0.85;
+    }
+    .logo-wordmark {
+      position: relative;
+      z-index: 1;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 12px;
+      line-height: 0.95;
+      text-align: center;
+      color: #8ab8e8;
+      -webkit-text-stroke: 1.2px #14539a;
+      paint-order: stroke fill;
+      letter-spacing: 0.01em;
+      margin-top: 4px;
+    }
+    .brand-text span {
+      display: block;
+      font-size: 17px;
+      letter-spacing: 0.02em;
+      color: var(--navy);
+    }
+    .brand-text small {
+      display: block;
+      color: #6b7ba4;
+      font: 700 10px/1.1 'DM Sans', sans-serif;
+      letter-spacing: .08em;
+      margin-top: 2px;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .nav-links a { padding: 6px 8px; border-radius: 10px; transition: all .2s ease; }
+    .nav-links a:hover { color: var(--navy); background: var(--lavender-soft); }
+    .nav-cta {
+      padding: 11px 18px;
+      border-radius: 999px;
+      color: var(--white);
+      background: linear-gradient(135deg, #6ea8fe 0%, #b8a4ff 55%, #ff9ec7 100%);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(184, 164, 255, 0.35);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(184, 164, 255, 0.48); }
     .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); color: var(--navy); cursor: pointer; }
 
-    /* CHEERFUL HERO SECTION */
+    /* HERO PASTEL AURORA KAWAII */
     .hero {
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      padding: 50px 0 70px;
-      background: linear-gradient(180deg, #f0f7ff 0%, #f9fcff 60%, #ffffff 100%);
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(77,148,232,0.12) 0%, rgba(49,198,181,0.05) 60%, transparent 70%);
-      border-radius: 50%;
-      z-index: -1;
+      padding: 54px 0 74px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(107, 227, 200, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 88% 15%, rgba(255, 158, 199, 0.28) 0%, transparent 48%),
+        radial-gradient(circle at 55% 85%, rgba(184, 164, 255, 0.22) 0%, transparent 50%),
+        linear-gradient(180deg, #f3f9ff 0%, #fdf8ff 65%, #fdfaff 100%);
     }
     .hero-top-badges {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 24px;
     }
     .badge-pill {
@@ -100,29 +196,28 @@
       border-radius: 999px;
       font-size: 12px;
       font-weight: 700;
-      border: 1px solid var(--line);
-      background: var(--white);
-      box-shadow: 0 4px 12px rgba(24,58,99,.03);
+      border: 1.5px solid var(--white);
+      box-shadow: 0 6px 16px rgba(110, 168, 254, 0.12);
     }
-    .badge-pill.green { color: #148b80; border-color: #bcf3eb; background: #e5f8f4; }
-    .badge-pill.gold { color: #9c6e11; border-color: #fae4a7; background: #fff8e6; }
-    .badge-pill.blue { color: var(--blue); border-color: #cce2fd; background: var(--sky); }
+    .badge-pill.mint { color: #167a67; background: #d9fbf2; }
+    .badge-pill.butter { color: #8c6314; background: #fff3cc; }
+    .badge-pill.pink { color: #a82e68; background: #ffe3f0; }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.12fr .88fr;
       align-items: center;
-      gap: 50px;
+      gap: 46px;
     }
-    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.12; }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.14; }
     .hero h1 {
-      font-size: clamp(40px, 5.2vw, 68px);
+      font-size: clamp(38px, 5vw, 64px);
       letter-spacing: -.04em;
       color: var(--navy);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
-    .hero h1 span.gradient-text {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--mint) 100%);
+    .hero h1 span.aurora-text {
+      background: linear-gradient(135deg, #4b8df8 0%, #9b7bf7 50%, #f56fa8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -138,7 +233,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 36px;
+      margin-bottom: 34px;
     }
     .btn {
       display: inline-flex;
@@ -155,19 +250,17 @@
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
       color: var(--white);
-      background: linear-gradient(135deg, var(--blue), #3b82f6);
-      box-shadow: 0 10px 24px rgba(77,148,232,.3);
+      background: linear-gradient(135deg, #5d9dfd 0%, #a488fc 100%);
+      box-shadow: 0 10px 24px rgba(133, 136, 252, 0.34);
     }
-    .btn-primary:hover { box-shadow: 0 14px 28px rgba(77,148,232,.4); }
     .btn-secondary {
       color: var(--navy);
-      border: 1px solid var(--line);
+      border: 1.5px solid #dfd7fb;
       background: var(--white);
-      box-shadow: 0 4px 12px rgba(24,58,99,.03);
+      box-shadow: 0 6px 16px rgba(133, 118, 214, 0.08);
     }
-    .btn-secondary:hover { background: var(--sky); border-color: #cbdff8; }
+    .btn-secondary:hover { background: var(--lavender-soft); }
 
-    /* HERO STATS CARDS BAR */
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -176,26 +269,26 @@
     .stat-box {
       padding: 18px;
       border-radius: var(--radius-md);
-      background: var(--white);
-      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1.5px solid #ebe4fc;
       box-shadow: var(--shadow);
     }
     .stat-box .stat-icon {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       display: grid;
       place-items: center;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 14px;
       margin-bottom: 10px;
     }
-    .stat-box:nth-child(1) .stat-icon { color: #148b80; background: #e5f8f4; }
-    .stat-box:nth-child(2) .stat-icon { color: var(--blue); background: var(--sky); }
-    .stat-box:nth-child(3) .stat-icon { color: #b87911; background: #fff8e6; }
+    .stat-box:nth-child(1) .stat-icon { color: #167a67; background: #d9fbf2; }
+    .stat-box:nth-child(2) .stat-icon { color: #a82e68; background: #ffe3f0; }
+    .stat-box:nth-child(3) .stat-icon { color: #5b46b5; background: #ebe4fc; }
     .stat-box b {
       display: block;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 22px;
+      font-size: 20px;
       color: var(--navy);
       line-height: 1.1;
     }
@@ -207,345 +300,531 @@
       font-weight: 600;
     }
 
-    /* CHEERFUL ILLUSTRATION CARD WITH SPEECH BUBBLE */
+    /* MASCOT CARD AURORA KAWAII */
     .hero-visual-wrapper {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 16px;
     }
     .mascot-card {
       position: relative;
       width: 100%;
-      max-width: 440px;
+      max-width: 430px;
       border-radius: var(--radius-lg);
-      background: linear-gradient(145deg, #e4f1ff, #f3f8ff);
-      border: 2px solid #d2e7ff;
-      padding: 40px 30px;
+      background: linear-gradient(155deg, #e5f5ff 0%, #f4ebff 52%, #ffeaf4 100%);
+      border: 2.5px solid var(--white);
+      padding: 42px 28px 34px;
       text-align: center;
-      box-shadow: 0 25px 50px rgba(77,148,232,0.15);
+      box-shadow: 0 24px 55px rgba(155, 123, 247, 0.18);
     }
     .speech-bubble {
       position: absolute;
-      top: -24px;
-      right: 20px;
+      top: -22px;
+      right: 16px;
       background: var(--white);
-      border: 2px solid #d2e7ff;
-      padding: 12px 18px;
+      border: 2px solid #e3d6ff;
+      padding: 11px 16px;
       border-radius: 18px;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
       color: var(--navy);
-      box-shadow: 0 10px 20px rgba(24,58,99,0.08);
-      animation: floatBubble 3s ease-in-out infinite;
+      box-shadow: 0 10px 24px rgba(155, 123, 247, 0.14);
+      animation: floatBubble 3.2s ease-in-out infinite;
     }
     .speech-bubble::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: -7px;
       left: 24px;
       width: 12px;
       height: 12px;
       background: var(--white);
-      border-bottom: 2px solid #d2e7ff;
-      border-right: 2px solid #d2e7ff;
+      border-bottom: 2px solid #e3d6ff;
+      border-right: 2px solid #e3d6ff;
       transform: rotate(45deg);
     }
     @keyframes floatBubble {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
-
     .mascot-icon-circle {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 20px;
+      width: 114px;
+      height: 114px;
+      margin: 0 auto 18px;
       display: grid;
       place-items: center;
       background: var(--white);
       border-radius: 50%;
-      box-shadow: 0 15px 30px rgba(77,148,232,0.2);
-      font-size: 48px;
-      color: var(--blue);
-      border: 4px solid #fff;
+      box-shadow: 0 14px 30px rgba(110, 168, 254, 0.22);
+      font-size: 46px;
+      color: #8a6df1;
+      border: 4px solid #f5f0ff;
     }
-    .mascot-card h3 {
-      font-size: 22px;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .mascot-card p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-    .mascot-tags {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+    .mascot-card h3 { font-size: 22px; color: var(--navy); margin-bottom: 8px; }
+    .mascot-card p { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+    .mascot-tags { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
     .mascot-tag-item {
-      padding: 5px 12px;
+      padding: 6px 13px;
       border-radius: 999px;
       background: var(--white);
       color: var(--navy);
       font-size: 11px;
       font-weight: 700;
-      border: 1px solid var(--line);
+      border: 1px solid #e5ddfa;
     }
 
-    /* QUICK STRIP BELOW HERO */
-    .quick-strip { margin-top: 30px; }
-    .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); box-shadow: var(--shadow); }
+    /* QUICK STRIP */
+    .quick-strip { margin-top: 10px; }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: hidden;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
     .quick-item { display: flex; align-items: center; gap: 14px; padding: 22px 26px; border-right: 1px solid var(--line); }
     .quick-item:last-child { border-right: 0; }
-    .quick-icon { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; border-radius: 13px; color: var(--navy); background: var(--sky); }
-    .quick-item:nth-child(2) .quick-icon { color: #168c80; background: #e5f8f4; }
-    .quick-item:nth-child(3) .quick-icon { color: #b87911; background: #fff5da; }
+    .quick-icon { width: 44px; height: 44px; flex: 0 0 44px; display: grid; place-items: center; border-radius: 14px; color: #4b8df8; background: var(--sky-soft); font-size: 18px; }
+    .quick-item:nth-child(2) .quick-icon { color: #167a67; background: var(--mint-soft); }
+    .quick-item:nth-child(3) .quick-icon { color: #a82e68; background: var(--pink-soft); }
     .quick-item b { display: block; color: var(--navy); font: 700 20px/1 'Space Grotesk', sans-serif; }
     .quick-item span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
 
-    .section { padding: 110px 0 0; }
+    /* GENERAL SECTION STYLING */
+    .section { padding: 96px 0 0; }
     .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
-    .kicker { margin-bottom: 10px; color: var(--blue); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    .section h2 { max-width: 620px; color: var(--navy); font-size: clamp(32px, 4vw, 50px); letter-spacing: -.04em; }
-    .section-intro { max-width: 390px; color: var(--muted); font-size: 15px; }
+    .kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--lavender-soft);
+      color: #6b4ce6;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .section h2 { max-width: 620px; color: var(--navy); font-size: clamp(30px, 4vw, 46px); letter-spacing: -.04em; }
+    .section-intro { max-width: 400px; color: var(--muted); font-size: 15px; }
 
-    .about-section { padding-top: 92px; }
+    /* 1. TENTANG */
     .about-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 20px; align-items: stretch; }
-    .about-main, .about-pillar { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: 0 12px 30px rgba(24,58,99,.05); }
+    .about-main, .about-pillar { border: 1.5px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
     .about-main { padding: 34px; }
-    .about-main h3 { max-width: 680px; margin-bottom: 15px; color: var(--navy); font-size: 27px; letter-spacing: -.03em; }
+    .about-main h3 { max-width: 680px; margin-bottom: 15px; color: var(--navy); font-size: 26px; letter-spacing: -.03em; }
     .about-main p { max-width: 720px; color: var(--muted); font-size: 15px; }
     .about-main p + p { margin-top: 12px; }
     .about-pillar { display: grid; grid-template-columns: 1fr; overflow: hidden; }
     .pillar { display: flex; gap: 15px; padding: 22px 24px; border-bottom: 1px solid var(--line); }
     .pillar:last-child { border-bottom: 0; }
-    .pillar-icon { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border-radius: 11px; color: var(--blue); background: var(--sky); }
-    .pillar:nth-child(2) .pillar-icon { color: #168c80; background: #e5f8f4; }
-    .pillar:nth-child(3) .pillar-icon { color: #b87911; background: #fff5da; }
+    .pillar-icon { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; border-radius: 12px; color: #5b46b5; background: var(--lavender-soft); }
+    .pillar:nth-child(2) .pillar-icon { color: #167a67; background: var(--mint-soft); }
+    .pillar:nth-child(3) .pillar-icon { color: #a82e68; background: var(--pink-soft); }
     .pillar h4 { margin-bottom: 4px; color: var(--navy); font-size: 16px; }
-    .pillar p { color: var(--muted); font-size: 12px; }
+    .pillar p { color: var(--muted); font-size: 12.5px; }
 
-    .sdgs-section { margin-top: 96px; padding: 78px 0 82px; color: var(--white); background: linear-gradient(135deg, #112842 0%, #1a4777 100%); }
-    .sdgs-section .section-heading { margin-bottom: 30px; }
-    .sdgs-section .kicker { color: var(--gold); }
-    .sdgs-section h2 { color: var(--white); }
-    .sdgs-section .section-intro { color: #c6d9ec; }
-    .sdg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .sdg-card { display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 27px; border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius-md); background: rgba(255,255,255,.09); }
-    .sdg-number { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 16px; color: var(--navy); background: var(--gold); font: 700 23px 'Space Grotesk', sans-serif; }
-    .sdg-card:nth-child(2) .sdg-number { color: var(--white); background: var(--coral); }
-    .sdg-card h3 { margin-bottom: 8px; color: var(--white); font-size: 22px; }
-    .sdg-card p { color: #c6d9ec; font-size: 13px; }
-    .sdg-card small { display: inline-block; margin-top: 12px; color: #9fc8e9; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    /* 2. ALUR 5 TAHAP */
+    .method { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .method-card {
+      position: relative;
+      min-height: 290px;
+      padding: 22px 18px;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(133, 118, 214, 0.07);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .method-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .step { width: 40px; height: 40px; display: grid; place-items: center; margin-bottom: 22px; border-radius: 12px; font: 700 16px 'Space Grotesk', sans-serif; }
+    .method-card:nth-child(1) .step { color: #3b7be3; background: var(--sky-soft); }
+    .method-card:nth-child(2) .step { color: #167a67; background: var(--mint-soft); }
+    .method-card:nth-child(3) .step { color: #6b4ce6; background: var(--lavender-soft); }
+    .method-card:nth-child(4) .step { color: #a82e68; background: var(--pink-soft); }
+    .method-card:nth-child(5) .step { color: #9c6a0e; background: var(--butter-soft); }
+    .method-card h3 { margin-bottom: 10px; color: var(--navy); font-size: 20px; }
+    .method-card p { color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+    .method-tag { display: inline-block; margin-top: 16px; padding: 5px 10px; border-radius: 999px; color: #5b46b5; background: var(--lavender-soft); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 
-    .episode-section { background: linear-gradient(180deg, #eef7ff 0%, #f7fbff 100%); }
-    .video-section { padding-top: 94px; }
-    .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .video-card { position: relative; min-height: 210px; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); box-shadow: 0 10px 26px rgba(24,58,99,.05); }
-    .video-card.active { grid-column: span 2; color: var(--white); border-color: transparent; background: linear-gradient(135deg, var(--coral), #e85b50); box-shadow: 0 18px 34px rgba(232,91,80,.18); }
-    .video-card.active h3, .video-card.active p { color: var(--white); }
-    .video-number { display: inline-flex; align-items: center; justify-content: center; min-width: 56px; height: 27px; margin-bottom: 30px; padding: 0 10px; border-radius: 999px; color: var(--coral); background: #fff0ee; font: 700 11px 'Space Grotesk', sans-serif; letter-spacing: .08em; }
-    .video-card.active .video-number { color: var(--coral); background: var(--white); }
-    .video-card h3 { margin-bottom: 9px; color: var(--navy); font-size: 22px; }
-    .video-card p { max-width: 460px; color: var(--muted); font-size: 13px; }
-    .video-card .coming { position: absolute; top: 24px; right: 22px; color: #a0b3c6; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .video-card.active .coming { color: #ffe0dc; }
-    .video-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 23px; }
-    .video-actions .btn { min-height: 41px; color: var(--coral); background: var(--white); font-size: 12px; }
-    .video-card:not(.active)::after { content: 'SEGERA HADIR'; position: absolute; right: 22px; bottom: 22px; color: #a0b3c6; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+    /* 3. PERAN SDGS (SDG 3, SDG 4, SDG 16 + LOGO) */
+    .sdgs-section {
+      margin-top: 96px;
+      padding: 78px 0 82px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(107, 227, 200, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(255, 158, 199, 0.25) 0%, transparent 45%),
+        linear-gradient(135deg, #eef6ff 0%, #f5eeff 50%, #fff0f7 100%);
+      border-top: 1.5px solid var(--line);
+      border-bottom: 1.5px solid var(--line);
+    }
+    .sdg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .sdg-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      border: 1.5px solid var(--white);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease;
+    }
+    .sdg-card:hover { transform: translateY(-4px); }
+    .sdg-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    /* Official SDG Color Badges with Logo Icon */
+    .sdg-logo-box {
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .sdg-logo-box strong { font-size: 20px; line-height: 1; }
+    .sdg-logo-box i { font-size: 18px; margin-top: 4px; }
+    .sdg-3 { background: linear-gradient(135deg, #4c9f38, #6cc058); }
+    .sdg-4 { background: linear-gradient(135deg, #c5192d, #e44256); }
+    .sdg-16 { background: linear-gradient(135deg, #00689d, #248ec4); }
+    .sdg-card h3 { color: var(--navy); font-size: 20px; }
+    .sdg-card p { color: var(--muted); font-size: 13.5px; margin-bottom: 14px; }
+    .sdg-card small {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--sky-soft);
+      color: var(--navy);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
 
+    /* 4. PRE-TEST (5 EPISODE) */
     .episode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .episode-card { position: relative; min-height: 225px; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); box-shadow: 0 10px 26px rgba(24,58,99,.05); }
-    .episode-card.active { grid-column: span 2; min-height: 260px; color: var(--white); border-color: transparent; background: linear-gradient(135deg, var(--navy), #2c6ca6); box-shadow: 0 18px 34px rgba(24,58,99,.18); }
-    .episode-card.active h3, .episode-card.active p { color: var(--white); }
-    .episode-number { display: inline-flex; align-items: center; justify-content: center; min-width: 56px; height: 27px; margin-bottom: 30px; padding: 0 10px; border-radius: 999px; color: var(--blue); background: var(--sky); font: 700 11px 'Space Grotesk', sans-serif; letter-spacing: .08em; }
-    .episode-card.active .episode-number { color: var(--navy); background: var(--gold); }
+    .episode-card {
+      position: relative;
+      min-height: 220px;
+      padding: 25px;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: 0 10px 26px rgba(133, 118, 214, 0.06);
+    }
+    .episode-card.active {
+      grid-column: span 2;
+      color: var(--navy);
+      border-color: #d6c8ff;
+      background: linear-gradient(135deg, #e7f3ff 0%, #f1e7ff 55%, #ffe8f3 100%);
+      box-shadow: var(--shadow);
+    }
+    .episode-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      height: 28px;
+      margin-bottom: 20px;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: #5b46b5;
+      background: var(--lavender-soft);
+      font: 700 11px 'Space Grotesk', sans-serif;
+      letter-spacing: .08em;
+    }
+    .episode-card.active .episode-number { color: var(--white); background: linear-gradient(135deg, #5d9dfd, #a488fc); }
     .episode-card h3 { margin-bottom: 9px; color: var(--navy); font-size: 22px; }
-    .episode-card p { max-width: 460px; color: var(--muted); font-size: 13px; }
-    .episode-card .coming { position: absolute; top: 24px; right: 22px; color: #a0b3c6; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .episode-card.active .coming { color: #bfe9e2; }
-    .episode-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 23px; }
-    .episode-actions .btn { min-height: 41px; font-size: 12px; }
-    .episode-url { color: #c9e0f5; font-size: 11px; word-break: break-word; }
-    .episode-card:not(.active)::after { content: 'SEGERA HADIR'; position: absolute; right: 22px; bottom: 22px; color: #a0b3c6; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
-    .pretest-kit { display: flex; align-items: center; gap: 19px; margin-top: 25px; padding: 14px; border-radius: 16px; background: rgba(255,255,255,.1); }
-    .pretest-qr { width: 92px; height: 92px; padding: 5px; border-radius: 10px; background: var(--white); }
-    .pretest-kit strong { display: block; margin-bottom: 4px; color: var(--white); font-family: 'Space Grotesk', sans-serif; font-size: 16px; }
-    .pretest-kit span { display: block; color: #c9e0f5; font-size: 11px; }
+    .episode-card p { max-width: 480px; color: var(--muted); font-size: 13.5px; }
+    .episode-card .coming { position: absolute; top: 24px; right: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .episode-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 22px; }
+    .episode-actions .btn { min-height: 42px; font-size: 13px; }
+    .episode-url { color: var(--muted); font-size: 11px; font-weight: 600; }
+    .episode-card:not(.active)::after { content: 'SEGERA HADIR'; position: absolute; right: 22px; bottom: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+    .pretest-kit { display: flex; align-items: center; gap: 18px; margin-top: 22px; padding: 14px; border-radius: 16px; background: rgba(255,255,255,.75); border: 1px solid var(--white); }
+    .pretest-qr { width: 88px; height: 88px; padding: 4px; border-radius: 10px; background: var(--white); }
+    .pretest-kit strong { display: block; margin-bottom: 3px; color: var(--navy); font-family: 'Space Grotesk', sans-serif; font-size: 15px; }
+    .pretest-kit span { display: block; color: var(--muted); font-size: 12px; }
 
-    .games-section { padding-top: 94px; }
-    .game-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
+    /* 5. VIDEO DIGI SHELTER / WA-CAST (5 EPISODE) */
+    .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .video-card {
+      position: relative;
+      min-height: 215px;
+      padding: 24px;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: 0 10px 26px rgba(133, 118, 214, 0.06);
+    }
+    .video-card.active {
+      border-color: #ffc7df;
+      background: linear-gradient(145deg, #fff0f7 0%, #f5eeff 100%);
+      box-shadow: var(--shadow);
+    }
+    .video-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      height: 28px;
+      margin-bottom: 20px;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: #a82e68;
+      background: var(--pink-soft);
+      font: 700 11px 'Space Grotesk', sans-serif;
+      letter-spacing: .08em;
+    }
+    .video-card.active .video-number { color: var(--white); background: linear-gradient(135deg, #ff7eb3, #a488fc); }
+    .video-card h3 { margin-bottom: 9px; color: var(--navy); font-size: 21px; }
+    .video-card p { color: var(--muted); font-size: 13px; }
+    .video-card .coming { position: absolute; top: 24px; right: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .video-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
+    .video-actions .btn { min-height: 40px; color: var(--white); background: linear-gradient(135deg, #ff758c, #ff7eb3); font-size: 12px; box-shadow: 0 8px 18px rgba(255, 117, 140, 0.25); }
+    .video-card:not(.active)::after { content: 'SEGERA HADIR'; position: absolute; right: 22px; bottom: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+
+    /* 6. GAMES */
+    .game-card { overflow: hidden; border: 1.5px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
     .game-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 27px 30px 21px; }
     .game-top h3 { color: var(--navy); font-size: 25px; }
     .game-top p { max-width: 650px; margin-top: 7px; color: var(--muted); font-size: 13px; }
-    .game-badge { padding: 8px 12px; border-radius: 999px; color: #148b80; background: #e5f8f4; font-size: 11px; font-weight: 700; white-space: nowrap; }
-    .game-frame { margin: 0 14px 14px; padding: 8px; border: 1px solid var(--line); border-radius: 18px; background: var(--sky-2); }
-    .game-frame iframe { height: 580px; }
+    .game-badge { padding: 8px 14px; border-radius: 999px; color: #167a67; background: var(--mint-soft); font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .game-frame { margin: 0 14px 14px; padding: 8px; border: 1px solid var(--line); border-radius: 18px; background: var(--sky-soft); }
+    .game-frame iframe { display: block; width: 100%; height: 560px; border: 0; border-radius: 12px; background: var(--white); }
     .game-fallback { padding: 0 30px 27px; color: var(--muted); font-size: 12px; }
-    .game-fallback a { color: var(--blue); font-weight: 700; text-decoration: underline; }
+    .game-fallback a { color: #5b46b5; font-weight: 700; text-decoration: underline; }
 
-    .contact-section { padding-top: 96px; padding-bottom: 110px; background: #eef7ff; }
-    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    .contact-card { min-height: 175px; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); box-shadow: 0 10px 25px rgba(24,58,99,.04); }
-    .contact-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 18px; border-radius: 13px; color: var(--navy); background: var(--sky); font-size: 18px; }
-    .contact-card:nth-child(2) .contact-icon { color: #168c80; background: #e5f8f4; }
-    .contact-card:nth-child(3) .contact-icon { color: #c34f47; background: #fff0ee; }
-    .contact-card h3 { margin-bottom: 5px; color: var(--navy); font-size: 19px; }
-    .contact-card p { margin-bottom: 12px; color: var(--muted); font-size: 12px; }
-    .contact-card a { color: var(--blue); font-size: 13px; font-weight: 700; word-break: break-word; }
-
-    .method { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-    .method-card { position: relative; min-height: 260px; padding: 23px 20px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); box-shadow: 0 12px 30px rgba(24,58,99,.05); transition: transform .2s ease, box-shadow .2s ease; }
-    .method-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-    .method-card::after { content: ''; position: absolute; top: 36px; right: -13px; width: 14px; border-top: 1px dashed #a8c6e3; }
-    .method-card:last-child::after { display: none; }
-    .method-card:nth-child(2) .step { color: #198f84; background: #e4f8f4; border-color: #9de5da; }
-    .method-card:nth-child(3) .step { color: #bd7b16; background: #fff6dd; border-color: #f2d38c; }
-    .method-card:nth-child(4) .step { color: #c34f47; background: #fff0ee; border-color: #ffc6c1; }
-    .step { width: 39px; height: 39px; display: grid; place-items: center; margin-bottom: 31px; border: 1px solid #b6d6f3; border-radius: 12px; color: var(--blue); background: var(--sky); font: 700 16px 'Space Grotesk', sans-serif; }
-    .method-card h3 { margin-bottom: 10px; color: var(--navy); font-size: 21px; }
-    .method-card p { color: var(--muted); font-size: 13px; }
-    .method-tag { display: inline-block; margin-top: 18px; padding: 5px 8px; border-radius: 6px; color: var(--blue); background: var(--sky); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
-
-    .team-section { background: linear-gradient(180deg, transparent, #eef7ff 35%, #eef7ff 100%); }
-    .mentor { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 22px; margin-bottom: 18px; padding: 25px 28px; border: 1px solid #a7e8df; border-radius: var(--radius-md); background: #f2fffc; }
-    .avatar { width: 64px; height: 64px; display: grid; place-items: center; overflow: hidden; border-radius: 50%; color: var(--navy); background: var(--white); border: 2px solid var(--mint); font-size: 24px; }
-    .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
-    .mentor .avatar { width: 78px; height: 78px; }
+    /* 7. TIM PENGEMBANG */
+    .mentor {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 18px;
+      padding: 25px 28px;
+      border: 1.5px solid #bcefe3;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #ebfbf7 0%, #f3f9ff 100%);
+    }
+    .avatar { width: 64px; height: 64px; display: grid; place-items: center; overflow: hidden; border-radius: 50%; color: var(--navy); background: var(--white); border: 2px solid var(--aurora-mint); font-size: 24px; }
+    .mentor .avatar { width: 76px; height: 76px; color: #167a67; }
     .mentor h3 { margin-bottom: 4px; color: var(--navy); font-size: 20px; }
-    .role { color: #148b80; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
-    .mentor p { max-width: 450px; color: var(--muted); font-size: 13px; }
-    .mentor-badge { padding: 8px 12px; border-radius: 999px; color: #148b80; background: #d9f8f1; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .role { color: #167a67; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .mentor p { max-width: 520px; color: var(--muted); font-size: 13px; }
+    .mentor-badge { padding: 8px 14px; border-radius: 999px; color: #167a67; background: #d4f8ee; font-size: 11px; font-weight: 700; white-space: nowrap; }
     .team-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
-    .team-card { min-height: 270px; padding: 23px 17px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); text-align: center; box-shadow: 0 10px 25px rgba(24,58,99,.04); transition: transform .2s ease; }
+    .team-card {
+      min-height: 270px;
+      padding: 23px 17px;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(133, 118, 214, 0.06);
+      transition: transform .2s ease;
+    }
     .team-card:hover { transform: translateY(-4px); }
-    .team-card .avatar { width: 67px; height: 67px; margin: 0 auto 15px; border-color: #9fc8f1; color: var(--blue); background: var(--sky); }
+    .team-card .avatar { width: 66px; height: 66px; margin: 0 auto 15px; border-color: #d6c8ff; color: #5b46b5; background: var(--lavender-soft); }
     .team-card h4 { min-height: 43px; margin-bottom: 6px; color: var(--navy); font-size: 15px; }
-    .team-card .role { min-height: 34px; color: var(--blue); font-size: 10px; }
+    .team-card .role { min-height: 34px; color: #6b4ce6; font-size: 10px; }
     .team-card p { color: var(--muted); font-size: 12px; }
 
+    /* 8. KONTAK (PALING BAWAH SEBELUM FOOTER) */
+    .contact-section {
+      margin-top: 96px;
+      padding: 84px 0 88px;
+      background: linear-gradient(180deg, #f5f0ff 0%, #eef6ff 100%);
+      border-top: 1.5px solid var(--line);
+    }
+    .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .contact-card {
+      min-height: 190px;
+      padding: 24px;
+      border: 1.5px solid var(--white);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease;
+    }
+    .contact-card:hover { transform: translateY(-4px); }
+    .contact-icon { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 16px; border-radius: 14px; font-size: 19px; }
+    .contact-card:nth-child(1) .contact-icon { color: #5b46b5; background: var(--lavender-soft); }
+    .contact-card:nth-child(2) .contact-icon { color: #c13584; background: var(--pink-soft); }
+    .contact-card:nth-child(3) .contact-icon { color: #e62117; background: #ffeceb; }
+    .contact-card:nth-child(4) .contact-icon { color: #167a67; background: var(--mint-soft); }
+    .contact-card h3 { margin-bottom: 6px; color: var(--navy); font-size: 18px; }
+    .contact-card p { margin-bottom: 14px; color: var(--muted); font-size: 12.5px; }
+    .contact-card a { color: #5b46b5; font-size: 13px; font-weight: 700; word-break: break-word; }
+
+    /* PEMBATAS & FOOTER HAK CIPTA RATA TENGAH */
+    .footer-divider {
+      height: 4px;
+      background: linear-gradient(90deg, var(--aurora-mint), var(--aurora-blue), var(--aurora-lavender), var(--aurora-pink));
+      border: 0;
+    }
+    footer {
+      padding: 44px 20px;
+      color: var(--navy);
+      background: var(--white);
+      text-align: center;
+    }
+    .footer-center {
+      max-width: 680px;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-brand {
+      color: var(--navy);
+      font: 700 20px 'Space Grotesk', sans-serif;
+    }
+    .footer-brand span {
+      background: linear-gradient(135deg, #4b8df8, #a488fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .footer-copy {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-copyright {
+      margin-top: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      width: 100%;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
     @media (max-width: 980px) {
-      .hero-grid { gap: 35px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 35px; }
       .method { grid-template-columns: repeat(3, 1fr); }
-      .method-card::after { display: none; }
+      .sdg-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 760px) {
       .container { width: min(100% - 28px, 600px); }
-      .nav { min-height: 68px; }
+      .nav { min-height: 70px; }
       .menu-toggle { display: block; }
-      .nav-links { display: none; position: absolute; top: 68px; left: 14px; right: 14px; padding: 15px; flex-direction: column; align-items: stretch; gap: 0; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 16px 30px rgba(0,0,0,.08); }
+      .nav-links { display: none; position: absolute; top: 70px; left: 14px; right: 14px; padding: 15px; flex-direction: column; align-items: stretch; gap: 4px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 16px 30px rgba(0,0,0,.08); }
       .nav-links.open { display: flex; }
-      .nav-links a { display: block; padding: 12px 10px; }
+      .nav-links a { display: block; padding: 10px 12px; }
       .nav-cta { display: none; }
-      .hero { padding: 40px 0 50px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
-      .hero h1 { font-size: clamp(38px, 11vw, 56px); }
-      .hero-copy { font-size: 15px; }
-      .hero-stats { grid-template-columns: 1fr; }
-      .quick-grid { grid-template-columns: 1fr; }
+      .hero { padding: 38px 0 50px; }
+      .hero-stats, .quick-grid, .method, .team-grid, .about-grid, .episode-grid, .contact-grid, .video-grid { grid-template-columns: 1fr; }
       .quick-item { border-right: 0; border-bottom: 1px solid var(--line); }
       .quick-item:last-child { border-bottom: 0; }
-      .section { padding-top: 76px; }
+      .section { padding-top: 72px; }
       .section-heading { display: block; }
-      .section-intro { margin-top: 15px; }
-      .method, .team-grid, .about-grid, .episode-grid, .contact-grid, .sdg-grid, .video-grid { grid-template-columns: 1fr; }
-      .method-card { min-height: auto; }
-      .episode-card.active, .video-card.active { grid-column: auto; }
-      .episode-card, .video-card { min-height: 190px; }
-      .sdgs-section { margin-top: 70px; padding: 62px 0 66px; }
-      .sdg-card { grid-template-columns: 1fr; }
+      .section-intro { margin-top: 12px; }
+      .episode-card.active { grid-column: auto; }
       .game-top { display: block; }
-      .game-badge { display: inline-block; margin-top: 14px; }
-      .game-frame iframe { height: 460px; }
-      .pretest-kit { align-items: flex-start; }
+      .game-badge { display: inline-block; margin-top: 12px; }
+      .game-frame iframe { height: 440px; }
       .mentor { grid-template-columns: auto 1fr; }
       .mentor-badge { grid-column: 2; justify-self: start; }
-      .footer-grid { display: block; }
-      .footer-meta { margin-top: 22px; text-align: left; }
     }
   </style>
 </head>
 <body>
+  <!-- HEADER DENGAN LOGO DIGI SHELTER DI POJOK KIRI ATAS -->
   <header class="topbar">
     <nav class="nav container" aria-label="Navigasi utama">
       <a class="brand" href="#home" aria-label="Digi Shelter, kembali ke beranda">
-        <span class="brand-mark"><i class="fa-solid fa-shield-heart"></i></span>
-        <span>DIGI SHELTER<small>SMPN 193 JAKARTA</small></span>
+        <div class="brand-logo-badge" aria-hidden="true">
+          <div class="logo-sparkles"><span></span><span></span><span></span></div>
+          <i class="fa-solid fa-hurricane logo-swirl"></i>
+          <div class="logo-wordmark">Digi<br>Shelter</div>
+        </div>
+        <div class="brand-text">
+          <span>DIGI SHELTER</span>
+          <small>BY WISE TEAM SMPN 193 JAKARTA</small>
+        </div>
       </a>
+
       <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
         <i class="fa-solid fa-bars"></i>
       </button>
+
+      <!-- URUTAN NAVIGASI SISTEMATIS -->
       <div class="nav-links">
         <a href="#tentang">Tentang</a>
+        <a href="#alur">5 Tahap</a>
         <a href="#sdgs">SDGs</a>
         <a href="#episode">Pre-Test</a>
-        <a href="#video">Video</a>
+        <a href="#video">Wa-Cast</a>
         <a href="#games">Games</a>
-        <a href="#tim">Tim Pengembang</a>
+        <a href="#tim">Tim</a>
         <a href="#kontak">Kontak</a>
       </div>
-      <a class="nav-cta" href="#video">Lihat Episode 1 <i class="fa-solid fa-arrow-right"></i></a>
+
+      <a class="nav-cta" href="#video">Tonton Wa-Cast <i class="fa-solid fa-play"></i></a>
     </nav>
   </header>
 
   <main>
-    <!-- CHEERFUL HERO SECTION -->
+    <!-- HERO SECTION PASTEL AURORA KAWAII -->
     <section class="hero" id="home">
       <div class="container">
-        <!-- Top Pill Badges -->
         <div class="hero-top-badges">
-          <div class="badge-pill green"><i class="fa-solid fa-users"></i> Tim WISE · SMPN 193 Jakarta</div>
-          <div class="badge-pill gold"><i class="fa-solid fa-award"></i> Jakarta SDGs Futuremakers 2026/2027</div>
-          <div class="badge-pill blue"><i class="fa-solid fa-shield-heart"></i> Student-Led Action</div>
+          <div class="badge-pill mint"><i class="fa-solid fa-users"></i> WISE Team · SMPN 193 Jakarta</div>
+          <div class="badge-pill butter"><i class="fa-solid fa-award"></i> Jakarta SDGs Futuremakers 2026/2027</div>
+          <div class="badge-pill pink"><i class="fa-solid fa-sparkles"></i> Student-Led Advocacy</div>
         </div>
 
         <div class="hero-grid">
           <div>
-            <h1>Suara Siswa Didengar, Nyaman & <span class="gradient-text">Terlindungi!</span></h1>
-            <p class="hero-copy">Digi Shelter hadir sebagai wadah advokasi digital yang asyik dan terpercaya untuk mendukung <strong>kesejahteraan mental, fisik, dan manajemen waktu</strong> seluruh siswa SMPN 193 Jakarta.</p>
+            <h1>Suara Siswa Didengar, Nyaman & <span class="aurora-text">Terlindungi!</span></h1>
+            <p class="hero-copy">Digi Shelter hadir sebagai ruang aman digital yang hangat dan suportif untuk mendukung <strong>kesejahteraan mental, fisik, dan manajemen waktu</strong> seluruh siswa SMPN 193 Jakarta.</p>
             
             <div class="hero-actions">
               <a class="btn btn-primary" href="https://secreto.site/id/aretx7" target="_blank" rel="noopener"><i class="fa-solid fa-paper-plane"></i> Sampaikan Aspirasi</a>
               <a class="btn btn-secondary" href="#episode"><i class="fa-solid fa-pen-to-square"></i> Isi Pre-Test Episode</a>
             </div>
 
-            <!-- Mini Stats Boxes Under Hero -->
             <div class="hero-stats">
               <div class="stat-box">
                 <div class="stat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                <b>Aman & Nyaman</b>
-                <span>Ruang Ekspresi Siswa</span>
+                <b>Ruang Aman</b>
+                <span>Privasi & Etika Terjaga</span>
               </div>
               <div class="stat-box">
-                <div class="stat-icon"><i class="fa-solid fa-video"></i></div>
-                <b>6 Episode</b>
-                <span>Podcast & Edukasi</span>
+                <div class="stat-icon"><i class="fa-solid fa-podcast"></i></div>
+                <b>5 Episode</b>
+                <span>Serial Wa-Cast & Edukasi</span>
               </div>
               <div class="stat-box">
                 <div class="stat-icon"><i class="fa-solid fa-seedling"></i></div>
-                <b>SDGs 4 & 16</b>
-                <span>Pendidikan Berkualitas</span>
+                <b>3 Tujuan SDGs</b>
+                <span>SDG 3, SDG 4 & SDG 16</span>
               </div>
             </div>
           </div>
 
-          <!-- Cheerfull Visual Illustration Card with Speech Bubble -->
           <div class="hero-visual-wrapper">
             <div class="mascot-card">
-              <div class="speech-bubble">“Halo! Ada keluh kesah atau ide? Yuk curhat di sini!”</div>
+              <div class="speech-bubble">“Hai! Punya cerita atau keresahan? Yuk berbagi di sini! ✨”</div>
               <div class="mascot-icon-circle">
                 <i class="fa-solid fa-shield-heart"></i>
               </div>
-              <h3>Digi Shelter Hub</h3>
-              <p>Jembatan komunikasi hangat antara siswa, guru BK, dan pihak sekolah.</p>
+              <h3>Digi Shelter Safe Hub</h3>
+              <p>Jembatan dialog ramah antara siswa, Guru BK, dan pihak sekolah untuk menciptakan lingkungan belajar yang sehat.</p>
               <div class="mascot-tags">
-                <span class="mascot-tag-item"><i class="fa-solid fa-lock text-success"></i> Privasi Terjaga</span>
-                <span class="mascot-tag-item"><i class="fa-solid fa-bolt text-warning"></i> Respon Solutif</span>
+                <span class="mascot-tag-item"><i class="fa-solid fa-lock"></i> 100% Anonim</span>
+                <span class="mascot-tag-item"><i class="fa-solid fa-hand-holding-heart"></i> Empatik & Solutif</span>
               </div>
             </div>
           </div>
@@ -555,217 +834,290 @@
 
     <section class="quick-strip" aria-label="Ringkasan program">
       <div class="container quick-grid">
-        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-list-check"></i></div><div><b>5 tahap</b><span>Alur advokasi terstruktur</span></div></div>
-        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-people-group"></i></div><div><b>Tim WISE</b><span>Penggerak utama proyek</span></div></div>
-        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-seedling"></i></div><div><b>2 tujuan SDGs</b><span>Pendidikan dan institusi inklusif</span></div></div>
+        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-list-check"></i></div><div><b>5 Tahap Aksi</b><span>Alur advokasi sistematis</span></div></div>
+        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-people-group"></i></div><div><b>WISE Team</b><span>Penggerak student-led action</span></div></div>
+        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-globe"></i></div><div><b>SDGs 3, 4 & 16</b><span>Kesehatan, pendidikan & institusi</span></div></div>
       </div>
     </section>
 
-    <section class="section about-section container" id="tentang">
+    <!-- 1. TENTANG DIGI SHELTER -->
+    <section class="section container" id="tentang">
       <div class="section-heading">
-        <div><div class="kicker">Tentang Digi Shelter</div><h2>Ketika suara siswa punya tempat untuk bertumbuh.</h2></div>
-        <p class="section-intro">Sebuah wadah advokasi dan jurnalisme digital inklusif yang mengubah aspirasi menjadi dialog, klarifikasi, dan solusi.</p>
+        <div><div class="kicker">01 · Tentang Digi Shelter</div><h2>Ketika suara siswa punya tempat untuk bertumbuh.</h2></div>
+        <p class="section-intro">Wadah advokasi dan media edukasi digital inklusif yang mengubah aspirasi menjadi dialog, klarifikasi, dan solusi nyata.</p>
       </div>
       <div class="about-grid">
         <article class="about-main">
           <h3>Digi Shelter menjembatani komunikasi antara murid, guru, BK, dan manajemen sekolah.</h3>
-          <p>Melalui ruang penyampaian aspirasi yang nyaman dan beretika, siswa dapat menyampaikan keluhan, pertanyaan, atau keresahan. Tim kemudian mengolahnya menjadi bahan eksplorasi, wawancara, klarifikasi, serta konten edukatif yang mudah dipahami.</p>
-          <p>Program ini digerakkan langsung oleh siswa atau <em>student-led action</em>, dengan tujuan mendukung kesejahteraan psikologis, transparansi informasi, dan lingkungan belajar yang inklusif.</p>
+          <p>Melalui ruang penyampaian aspirasi yang nyaman dan beretika, siswa dapat menyampaikan keluhan, pertanyaan, maupun keresahan. Tim kemudian mengolahnya menjadi bahan eksplorasi, diskusi Wa-Cast, serta konten edukatif yang ramah remaja.</p>
+          <p>Program ini digerakkan langsung oleh siswa (<em>student-led action</em>) untuk mendukung kesehatan mental, transparansi informasi, dan lingkungan sekolah yang suportif.</p>
         </article>
         <div class="about-pillar">
-          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-shield-heart"></i></div><div><h4>Tempat nyaman</h4><p>Ruang untuk menyampaikan aspirasi secara nyaman dan beretika.</p></div></div>
-          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-people-arrows"></i></div><div><h4>Student-led action</h4><p>Siswa menjadi subjek utama dalam riset, advokasi, dan penyusunan solusi.</p></div></div>
-          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-scale-balanced"></i></div><div><h4>Transparansi</h4><p>Isu dikonfirmasi bersama pihak sekolah lalu dibagikan secara objektif dan solutif.</p></div></div>
+          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-shield-heart"></i></div><div><h4>Ruang Aman & Nyaman</h4><p>Tempat berbagi cerita dan aspirasi secara anonim serta beretika.</p></div></div>
+          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-people-arrows"></i></div><div><h4>Student-Led Action</h4><p>Siswa berperan aktif dalam riset, wawancara, dan penyusunan solusi.</p></div></div>
+          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-scale-balanced"></i></div><div><h4>Transparansi & Edukasi</h4><p>Hasil diskusi dibagikan melalui Wa-Cast dan Digi Shelter Education.</p></div></div>
         </div>
       </div>
     </section>
 
-    <section class="section episode-section" id="episode">
-      <div class="container">
-        <div class="section-heading">
-          <div><div class="kicker">Segmen pre-test per episode</div><h2>Setiap episode dimulai dari pertanyaan yang relevan.</h2></div>
-          <p class="section-intro">Pre-test membantu memetakan pemahaman sebelum isu dibahas. Episode berikutnya akan hadir bertahap di kanal resmi SMPN 193 Jakarta.</p>
-        </div>
-        <div class="episode-grid">
-          <article class="episode-card active">
-            <span class="episode-number">EPISODE 01</span>
-            <h3>Pertemanan Toxic di SMP</h3>
-            <p>Mengenali tanda-tanda hubungan pertemanan yang tidak sehat, memahami batas diri, dan mencari cara merespons dengan aman.</p>
-            <div class="pretest-kit">
-              <img class="pretest-qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSc93eRA2o5P4ObfDy9kLJtSu_Wybbplx1bBvrNYlHD4RVmCCA%2Fviewform&size=220&margin=2" alt="QR code Pre-Test Episode 1" />
-              <div><strong>Pre-Test Episode 1</strong><span>Scan QR atau buka tautan untuk ikut mengisi.</span></div>
-            </div>
-            <div class="episode-actions">
-              <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc93eRA2o5P4ObfDy9kLJtSu_Wybbplx1bBvrNYlHD4RVmCCA/viewform" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square"></i> Isi Pre-Test</a>
-              <span class="episode-url">docs.google.com/forms · Episode 1</span>
-            </div>
-          </article>
-          <article class="episode-card"><span class="episode-number">EPISODE 02</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Topik selanjutnya sedang disiapkan berdasarkan aspirasi dan kebutuhan siswa.</p></article>
-          <article class="episode-card"><span class="episode-number">EPISODE 03</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Pre-test dan pembahasan akan hadir di tahap berikutnya.</p></article>
-          <article class="episode-card"><span class="episode-number">EPISODE 04</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Ikuti terus kanal Digi Shelter untuk kabar terbaru.</p></article>
-          <article class="episode-card"><span class="episode-number">EPISODE 05</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Setiap isu akan dibahas dengan pendekatan yang aman dan solutif.</p></article>
-          <article class="episode-card"><span class="episode-number">EPISODE 06</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Konten lanjutan akan dipublikasikan secara bertahap.</p></article>
-        </div>
+    <!-- 2. MEKANISME 5 TAHAP (REVISI INVESTIGATE, RESPOND, SHARE) -->
+    <section class="section container" id="alur">
+      <div class="section-heading">
+        <div><div class="kicker">02 · Bagaimana Kami Bekerja</div><h2>Lima tahap dari aspirasi menjadi aksi nyata.</h2></div>
+        <p class="section-intro">Mekanisme kerja terstruktur agar setiap suara siswa dapat didengar, dikaji, dan dibagikan manfaatnya.</p>
+      </div>
+      <div class="method">
+        <article class="method-card">
+          <div class="step">01</div>
+          <h3>Identify</h3>
+          <p>Menjaring isu dan keresahan murid melalui Digi Shelter Ft. Secreto Watisa Talks.</p>
+          <span class="method-tag">Dengar</span>
+        </article>
+        <article class="method-card">
+          <div class="step">02</div>
+          <h3>Explore</h3>
+          <p>Melakukan wawancara langsung untuk menggali dampak psikologis dan pengalaman murid.</p>
+          <span class="method-tag">Pahami</span>
+        </article>
+        <article class="method-card">
+          <div class="step">03</div>
+          <h3>Investigate</h3>
+          <p>Melakukan podcast (<strong>Wa-Cast</strong>) bersama pihak terkait sesuai isu atau masalah yang sedang dibahas.</p>
+          <span class="method-tag">Wa-Cast</span>
+        </article>
+        <article class="method-card">
+          <div class="step">04</div>
+          <h3>Respond</h3>
+          <p>Mengedit <strong>Wa-Cast (Wawancara-Podcast)</strong> serta merangkum poin-poin penting dan solutif dari podcast tersebut.</p>
+          <span class="method-tag">Kurasi Poin</span>
+        </article>
+        <article class="method-card">
+          <div class="step">05</div>
+          <h3>Share</h3>
+          <p>Mengunggah Wa-Cast di channel YouTube <strong>@smpn193official</strong> dan membuat postingan edukasi di Instagram <strong>@digi_shelter</strong> (Digi Shelter Education).</p>
+          <span class="method-tag">Publikasi</span>
+        </article>
       </div>
     </section>
 
+    <!-- 3. PERAN SDGS (SDG 3, SDG 4, SDG 16 + LOGO) -->
     <section class="sdgs-section" id="sdgs">
       <div class="container">
         <div class="section-heading">
-          <div><div class="kicker">Digi Shelter & SDGs</div><h2>Dua tujuan yang menjadi arah gerakan kami.</h2></div>
-          <p class="section-intro">Digi Shelter mendukung lingkungan belajar yang lebih berkualitas sekaligus mendorong tata kelola sekolah yang transparan dan partisipatif.</p>
+          <div><div class="kicker">03 · Digi Shelter & SDGs</div><h2>Tiga tujuan global yang menjadi arah gerakan kami.</h2></div>
+          <p class="section-intro">Mendukung kesehatan mental siswa, kualitas lingkungan belajar, serta tata kelola sekolah yang partisipatif.</p>
         </div>
         <div class="sdg-grid">
-          <article class="sdg-card"><div class="sdg-number">04</div><div><h3>SDGs 4 — Pendidikan Berkualitas</h3><p>Mendorong lingkungan belajar yang inklusif, aman, ramah anak, dan mendukung kesejahteraan psikologis siswa.</p><small>Target 4.a · Lingkungan belajar yang inklusif</small></div></article>
-          <article class="sdg-card"><div class="sdg-number">16</div><div><h3>SDGs 16 — Institusi yang Tangguh</h3><p>Mendorong komunikasi sekolah yang transparan, efektif, akuntabel, responsif, dan melibatkan suara siswa.</p><small>Target 16.6 & 16.7 · Tata kelola partisipatif</small></div></article>
+          <article class="sdg-card">
+            <div>
+              <div class="sdg-header">
+                <div class="sdg-logo-box sdg-3" aria-label="Logo SDG 3">
+                  <strong>3</strong>
+                  <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <h3>SDGs 3 — Kehidupan Sehat & Sejahtera</h3>
+              </div>
+              <p>Mendorong promosi kesehatan mental dan kesejahteraan psikologis remaja di lingkungan sekolah agar siswa tumbuh sehat secara emosional.</p>
+            </div>
+            <small>Target 3.4 · Kesehatan Mental & Well-Being</small>
+          </article>
+
+          <article class="sdg-card">
+            <div>
+              <div class="sdg-header">
+                <div class="sdg-logo-box sdg-4" aria-label="Logo SDG 4">
+                  <strong>4</strong>
+                  <i class="fa-solid fa-book-open"></i>
+                </div>
+                <h3>SDGs 4 — Pendidikan Berkualitas</h3>
+              </div>
+              <p>Mewujudkan lingkungan belajar yang inklusif, aman, ramah anak, bebas perundungan, dan mendukung perkembangan karakter siswa.</p>
+            </div>
+            <small>Target 4.a · Lingkungan Belajar Aman & Inklusif</small>
+          </article>
+
+          <article class="sdg-card">
+            <div>
+              <div class="sdg-header">
+                <div class="sdg-logo-box sdg-16" aria-label="Logo SDG 16">
+                  <strong>16</strong>
+                  <i class="fa-solid fa-dove"></i>
+                </div>
+                <h3>SDGs 16 — Institusi yang Tangguh</h3>
+              </div>
+              <p>Mendorong komunikasi sekolah yang transparan, akuntabel, responsif, dan memberikan ruang partisipasi bermakna bagi suara siswa.</p>
+            </div>
+            <small>Target 16.6 & 16.7 · Tata Kelola Partisipatif</small>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section video-section container" id="video">
+    <!-- 4. SEGMEN PRE-TEST (5 EPISODE) -->
+    <section class="section container" id="episode">
       <div class="section-heading">
-        <div><div class="kicker">Video Digi Shelter</div><h2>Enam episode untuk mendengar, memahami, dan berbagi.</h2></div>
-        <p class="section-intro">Video dapat disaksikan langsung melalui tautan YouTube resmi Digi Shelter.</p>
+        <div><div class="kicker">04 · Pre-Test Per Episode</div><h2>Mulai dari refleksi sebelum menyimak pembahasan.</h2></div>
+        <p class="section-intro">Pre-test membantu memetakan pemahaman awal siswa terhadap topik di setiap episode Digi Shelter.</p>
+      </div>
+      <div class="episode-grid">
+        <article class="episode-card active">
+          <span class="episode-number">EPISODE 01</span>
+          <h3>Pertemanan Toxic di SMP</h3>
+          <p>Mengenali tanda-tanda hubungan pertemanan yang tidak sehat, memahami batas diri, dan mencari cara merespons dengan aman.</p>
+          <div class="pretest-kit">
+            <img class="pretest-qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSc93eRA2o5P4ObfDy9kLJtSu_Wybbplx1bBvrNYlHD4RVmCCA%2Fviewform&size=220&margin=2" alt="QR code Pre-Test Episode 1" />
+            <div><strong>Pre-Test Episode 1</strong><span>Scan QR atau klik tombol di bawah untuk mengisi.</span></div>
+          </div>
+          <div class="episode-actions">
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc93eRA2o5P4ObfDy9kLJtSu_Wybbplx1bBvrNYlHD4RVmCCA/viewform" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square"></i> Isi Pre-Test</a>
+            <span class="episode-url">Google Forms · Episode 1</span>
+          </div>
+        </article>
+        <article class="episode-card"><span class="episode-number">EPISODE 02</span><span class="coming">Coming soon</span><h3>Episode 2</h3><p>Formulir pre-test untuk topik kedua sedang disiapkan.</p></article>
+        <article class="episode-card"><span class="episode-number">EPISODE 03</span><span class="coming">Coming soon</span><h3>Episode 3</h3><p>Pre-test dan pembahasan akan hadir di tahap berikutnya.</p></article>
+        <article class="episode-card"><span class="episode-number">EPISODE 04</span><span class="coming">Coming soon</span><h3>Episode 4</h3><p>Ikuti terus pembaruan Digi Shelter untuk topik selanjutnya.</p></article>
+        <article class="episode-card"><span class="episode-number">EPISODE 05</span><span class="coming">Coming soon</span><h3>Episode 5</h3><p>Episode penutup seri pertama akan segera diumumkan.</p></article>
+      </div>
+    </section>
+
+    <!-- 5. VIDEO DIGI SHELTER / WA-CAST (5 EPISODE) -->
+    <section class="section container" id="video">
+      <div class="section-heading">
+        <div><div class="kicker">05 · Video Digi Shelter (Wa-Cast)</div><h2>Lima episode untuk mendengar, memahami, dan berbagi.</h2></div>
+        <p class="section-intro">Saksikan tayangan Wawancara-Podcast (Wa-Cast) melalui kanal YouTube resmi @smpn193official.</p>
       </div>
       <div class="video-grid">
         <article class="video-card active">
           <span class="video-number">EPISODE 01</span>
           <h3>Pertemanan Toxic di SMP</h3>
-          <p>Episode pertama membahas tanda-tanda pertemanan yang tidak sehat dan cara meresponsnya dengan lebih bijak.</p>
+          <p>Membahas tanda-tanda pertemanan tidak sehat bersama narasumber sekolah dan cara menyikapinya.</p>
           <div class="video-actions">
             <a class="btn" href="https://youtu.be/a1dhCAK9mIo?si=rsOWaPegGKtjD_S9" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Tonton Episode 1</a>
           </div>
         </article>
         <article class="video-card active">
           <span class="video-number">EPISODE 02</span>
-          <h3>Episode 2 Digi Shelter</h3>
-          <p>Pembahasan mendalam dan wawancara interaktif seputar kesejahteraan siswa di sekolah.</p>
+          <h3>Episode 2 Wa-Cast</h3>
+          <p>Diskusi mendalam dan wawancara interaktif seputar kesejahteraan psikologis siswa di sekolah.</p>
           <div class="video-actions">
             <a class="btn" href="https://youtu.be/awhMPu-ZwJA?si=YHK3HaCYQ-B8jEzy" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Tonton Episode 2</a>
           </div>
         </article>
-        <article class="video-card"><span class="video-number">EPISODE 03</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Video sedang disiapkan.</p></article>
-        <article class="video-card"><span class="video-number">EPISODE 04</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Video sedang disiapkan.</p></article>
-        <article class="video-card"><span class="video-number">EPISODE 05</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Video sedang disiapkan.</p></article>
-        <article class="video-card"><span class="video-number">EPISODE 06</span><span class="coming">Coming soon</span><h3>Episode berikutnya</h3><p>Video sedang disiapkan.</p></article>
+        <article class="video-card"><span class="video-number">EPISODE 03</span><span class="coming">Coming soon</span><h3>Episode 3 Wa-Cast</h3><p>Video sedang dalam tahap produksi dan penyuntingan.</p></article>
+        <article class="video-card"><span class="video-number">EPISODE 04</span><span class="coming">Coming soon</span><h3>Episode 4 Wa-Cast</h3><p>Video sedang dalam tahap produksi dan penyuntingan.</p></article>
+        <article class="video-card"><span class="video-number">EPISODE 05</span><span class="coming">Coming soon</span><h3>Episode 5 Wa-Cast</h3><p>Video sedang dalam tahap produksi dan penyuntingan.</p></article>
       </div>
     </section>
 
-    <section class="section games-section container" id="games">
+    <!-- 6. GAMES -->
+    <section class="section container" id="games">
       <div class="section-heading">
-        <div><div class="kicker">Program & segmen games</div><h2>Belajar, berefleksi, lalu bermain.</h2></div>
-        <p class="section-intro">Games menjadi bagian dari pengalaman Digi Shelter agar topik yang dibahas terasa lebih interaktif dan dekat dengan siswa.</p>
+        <div><div class="kicker">06 · Segmen Games Interaktif</div><h2>Belajar, berefleksi, lalu bermain bersama.</h2></div>
+        <p class="section-intro">Kuis interaktif Digi Shelter agar pemahaman topik terasa lebih seru dan menyenangkan.</p>
       </div>
       <article class="game-card">
-        <div class="game-top"><div><h3>Game Digi Shelter</h3><p>Mainkan langsung di halaman ini tanpa perlu berpindah tab. Jika permainan tidak muncul, gunakan tautan alternatif di bawahnya.</p></div><span class="game-badge"><i class="fa-solid fa-gamepad"></i> Main sekarang</span></div>
+        <div class="game-top"><div><h3>Game Digi Shelter</h3><p>Mainkan langsung di halaman ini tanpa perlu berpindah tab. Jika permainan tidak muncul, gunakan tautan alternatif di bawahnya.</p></div><span class="game-badge"><i class="fa-solid fa-gamepad"></i> Main Sekarang</span></div>
         <div class="game-frame"><iframe src="https://quiz.zep.us/en/play/5rla1g" title="Game Digi Shelter"></iframe></div>
         <div class="game-fallback">Game tidak tampil? <a href="https://quiz.zep.us/en/play/5rla1g" target="_blank" rel="noopener">Buka game Digi Shelter di tab baru</a>.</div>
       </article>
     </section>
 
-    <section class="section container" id="alur">
+    <!-- 7. TIM PENGEMBANG -->
+    <section class="section container" id="tim">
       <div class="section-heading">
-        <div><div class="kicker">Bagaimana kami bekerja</div><h2>Dari aspirasi menjadi aksi yang nyata.</h2></div>
-        <p class="section-intro">Mekanisme advokasi dibangun dalam lima tahap agar setiap suara dapat didengar, dipahami, dan ditindaklanjuti.</p>
+        <div><div class="kicker">07 · Tim Pengembang</div><h2>WISE Team bekerja sebagai satu kesatuan.</h2></div>
+        <p class="section-intro">Setiap anggota membawa peran yang saling melengkapi untuk menjaga riset, komunikasi, produksi, dan aksi tetap berjalan.</p>
       </div>
-      <div class="method">
-        <article class="method-card"><div class="step">01</div><h3>Identify</h3><p>Menjaring isu murid melalui Digi Shelter Ft. Secreto Watisa Talks.</p><span class="method-tag">Dengar</span></article>
-        <article class="method-card"><div class="step">02</div><h3>Explore</h3><p>Melakukan wawancara langsung untuk menggali dampak psikologis murid.</p><span class="method-tag">Pahami</span></article>
-        <article class="method-card"><div class="step">03</div><h3>Investigate</h3><p>Mengonfirmasi isu dan melakukan audiensi dengan pihak BK atau manajemen sekolah.</p><span class="method-tag">Konfirmasi</span></article>
-        <article class="method-card"><div class="step">04</div><h3>Respond</h3><p>Menyusun analisis komparatif dan merumuskan solusi <em>win-win</em>.</p><span class="method-tag">Solusi</span></article>
-        <article class="method-card"><div class="step">05</div><h3>Share</h3><p>Mempublikasikan cerita dan pembelajaran melalui serial video di YouTube resmi.</p><span class="method-tag">Bagikan</span></article>
+      <article class="mentor">
+        <div class="avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
+        <div>
+          <h3>Syafitri Amriana Sanusi, S.Si</h3>
+          <span class="role">Guru Pendamping</span>
+          <p>Membimbing, mengarahkan, dan mendampingi kelancaran proyek advokasi sekolah.</p>
+        </div>
+        <span class="mentor-badge">Pendamping Program</span>
+      </article>
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="avatar"><i class="fa-solid fa-user-tie"></i></div>
+          <h4>Nabil Fikri Utomo</h4>
+          <span class="role">Ketua Tim</span>
+          <p>Koordinasi kegiatan, pembagian tugas, analisis komparatif, dan juru bicara utama.</p>
+        </article>
+        <article class="team-card">
+          <div class="avatar"><i class="fa-solid fa-address-book"></i></div>
+          <h4>Syaika Nadhif Ghifari</h4>
+          <span class="role">Sekretaris</span>
+          <p>Mengelola administrasi, mengarsip, dan merekap data pesan siswa dari Digi Shelter Ft. Secreto Watisa Talks.</p>
+        </article>
+        <article class="team-card">
+          <div class="avatar"><i class="fa-solid fa-user-pen"></i></div>
+          <h4>Nararya Nur Hasna</h4>
+          <span class="role">Humas & Presentasi</span>
+          <p>Berkomunikasi dengan Guru/BK, mengurus perizinan wawancara, dan menyampaikan hasil.</p>
+        </article>
+        <article class="team-card">
+          <div class="avatar"><i class="fa-solid fa-clapperboard"></i></div>
+          <h4>Dinara Ardella Putri</h4>
+          <span class="role">Kreatif & Editor</span>
+          <p>Mengedit video dan foto wawancara, mendesain media visual, dan mengeksekusi publikasi.</p>
+        </article>
+        <article class="team-card">
+          <div class="avatar"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h4>Asyifa Aulia Noorsy</h4>
+          <span class="role">Riset & Operasional</span>
+          <p>Meneliti materi, mewawancarai siswa di lapangan, menulis skrip, dan mengelola operasional.</p>
+        </article>
       </div>
     </section>
 
-    <section class="section contact-section" id="kontak">
+    <!-- 8. KONTAK (PALING BAWAH + INSTAGRAM @digi_shelter) -->
+    <section class="contact-section" id="kontak">
       <div class="container">
         <div class="section-heading">
-          <div><div class="kicker">Hubungi & Sampaikan Aspirasi</div><h2>Saluran komunikasi yang aman dan terbuka.</h2></div>
-          <p class="section-intro">Kirimkan kritik, saran, maupun cerita Anda melalui tautan Secreto atau hubungi kanal resmi kami.</p>
+          <div><div class="kicker">08 · Kontak & Saluran Resmi</div><h2>Terhubung dengan Digi Shelter.</h2></div>
+          <p class="section-intro">Sampaikan aspirasi secara anonim atau ikuti konten edukasi kami melalui kanal resmi di bawah ini.</p>
         </div>
         <div class="contact-grid">
           <article class="contact-card">
             <div class="contact-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
             <h3>Secreto Digi Shelter</h3>
-            <p>Kirimkan pesan atau aspirasi secara anonim melalui platform Secreto.</p>
-            <a href="https://secreto.site/id/aretx7" target="_blank" rel="noopener">Buka Secreto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <p>Kirimkan pesan, keluh kesah, atau aspirasi secara anonim dan aman.</p>
+            <a href="https://secreto.site/id/aretx7" target="_blank" rel="noopener">secreto.site/id/aretx7 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </article>
+          <article class="contact-card">
+            <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+            <h3>Instagram Resmi</h3>
+            <p>Ikuti postingan <strong>Digi Shelter Education</strong> dan info terbaru kami.</p>
+            <a href="https://www.instagram.com/digi_shelter/" target="_blank" rel="noopener">@digi_shelter <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </article>
           <article class="contact-card">
             <div class="contact-icon"><i class="fa-brands fa-youtube"></i></div>
             <h3>Kanal YouTube</h3>
-            <p>Tonton seluruh seri diskusi dan video edukasi Digi Shelter.</p>
-            <a href="https://youtube.com/@smpn193official?si=yrENpja0H6UqpUQr" target="_blank" rel="noopener">Kunjungi YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <p>Tonton tayangan lengkap serial diskusi <strong>Wa-Cast</strong> Digi Shelter.</p>
+            <a href="https://youtube.com/@smpn193official?si=yrENpja0H6UqpUQr" target="_blank" rel="noopener">@smpn193official <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </article>
           <article class="contact-card">
             <div class="contact-icon"><i class="fa-solid fa-school"></i></div>
             <h3>SMPN 193 Jakarta</h3>
-            <p>Pusat kegiatan dan koordinasi program advokasi siswa.</p>
-            <a href="#home">Jakarta, Indonesia</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section team-section" id="tim">
-      <div class="container">
-        <div class="section-heading">
-          <div><div class="kicker">Orang di balik gerakan</div><h2>Tim Pengembang Digi Shelter bekerja sebagai satu kesatuan.</h2></div>
-          <p class="section-intro">Setiap anggota membawa peran yang berbeda untuk menjaga riset, komunikasi, produksi, dan aksi tetap berjalan.</p>
-        </div>
-        <article class="mentor">
-          <div class="avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
-          <div>
-            <h3>Syafitri Amriana Sanusi, S.Si</h3>
-            <span class="role">Guru Pendamping</span>
-            <p>Membimbing, mengarahkan, dan mendampingi kelancaran proyek advokasi sekolah.</p>
-          </div>
-          <span class="mentor-badge">Pendamping program</span>
-        </article>
-        <div class="team-grid">
-          <article class="team-card">
-            <div class="avatar"><i class="fa-solid fa-user-tie"></i></div>
-            <h4>Nabil Fikri Utomo</h4>
-            <span class="role">Ketua Tim</span>
-            <p>Koordinasi kegiatan, pembagian tugas, analisis komparatif, dan juru bicara utama.</p>
-          </article>
-          <article class="team-card">
-            <div class="avatar"><i class="fa-solid fa-address-book"></i></div>
-            <h4>Syaika Nadhif Ghifari</h4>
-            <span class="role">Sekretaris</span>
-            <p>Mengelola administrasi, mengarsip, dan merekap data pesan siswa dari Digi Shelter Ft. Secreto Watisa Talks.</p>
-          </article>
-          <article class="team-card">
-            <div class="avatar"><i class="fa-solid fa-user-pen"></i></div>
-            <h4>Nararya Nur Hasna</h4>
-            <span class="role">Humas & Presentasi</span>
-            <p>Berkomunikasi dengan Guru/BK, mengurus perizinan wawancara, dan menyampaikan hasil.</p>
-          </article>
-          <article class="team-card">
-            <div class="avatar"><i class="fa-solid fa-clapperboard"></i></div>
-            <h4>Dinara Ardella Putri</h4>
-            <span class="role">Kreatif & Editor</span>
-            <p>Mengedit video dan foto wawancara, mendesain media visual, dan mengeksekusi publikasi.</p>
-          </article>
-          <article class="team-card">
-            <div class="avatar"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <h4>Asyifa Aulia Noorsy</h4>
-            <span class="role">Riset & Operasional</span>
-            <p>Meneliti materi, mewawancarai siswa di lapangan, menulis skrip, dan mengelola operasional.</p>
+            <p>Pusat kegiatan dan koordinasi program advokasi WISE Team.</p>
+            <a href="#home">Jakarta Timur, DKI Jakarta</a>
           </article>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- PEMBATAS TEGAS ANTARA KONTAK & FOOTER -->
+  <hr class="footer-divider" />
+
+  <!-- FOOTER HAK CIPTA RATA TENGAH -->
   <footer>
-    <div class="container footer-grid">
-      <div>
-        <div class="footer-brand">DIGI SHELTER <span>· SMPN 193 JAKARTA</span></div>
-        <p class="footer-copy">Wadah advokasi digital berbasis student-led action untuk kesejahteraan siswa.</p>
-      </div>
-      <div class="footer-meta">
-        <strong>Jakarta SDGs Futuremakers</strong>
-        <span>© 2026/2027 WISE Team. Hak cipta dilindungi.</span>
+    <div class="footer-center">
+      <div class="footer-brand">DIGI SHELTER <span>· SMPN 193 JAKARTA</span></div>
+      <p class="footer-copy">Wadah advokasi digital berbasis student-led action untuk kesehatan mental dan kesejahteraan siswa.</p>
+      <div class="footer-copyright">
+        © 2026/2027 WISE Team — Jakarta SDGs Futuremakers. Hak cipta dilindungi undang-undang.
       </div>
     </div>
   </footer>
@@ -787,4 +1139,4 @@
     }
   </script>
 </body>
-</html>
+            </html>
