@@ -48,13 +48,13 @@
     button { font: inherit; }
     .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
 
-    /* TOPBAR DENGAN LOGO DIGI SHELTER */
+    /* TOPBAR DENGAN LOGO & PEMUTAR MUSIK */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 30;
       border-bottom: 1px solid rgba(184, 164, 255, 0.25);
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(18px);
     }
     .nav {
@@ -62,7 +62,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
     }
     .brand {
       display: inline-flex;
@@ -72,11 +72,10 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
     }
-    /* Custom Scrapbook Logo Digi Shelter */
     .brand-logo-badge {
       position: relative;
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       border-radius: 16px;
       background: linear-gradient(135deg, #c2e0ff 0%, #96c7f7 55%, #d6ecff 100%);
       border: 2px solid #76b2ee;
@@ -130,7 +129,7 @@
       position: relative;
       z-index: 1;
       font-family: 'Fredoka', sans-serif;
-      font-size: 12px;
+      font-size: 11.5px;
       line-height: 0.95;
       text-align: center;
       color: #8ab8e8;
@@ -141,30 +140,83 @@
     }
     .brand-text span {
       display: block;
-      font-size: 17px;
+      font-size: 16px;
       letter-spacing: 0.02em;
       color: var(--navy);
     }
     .brand-text small {
       display: block;
       color: #6b7ba4;
-      font: 700 10px/1.1 'DM Sans', sans-serif;
-      letter-spacing: .08em;
+      font: 700 9.5px/1.1 'DM Sans', sans-serif;
+      letter-spacing: .07em;
       margin-top: 2px;
     }
 
-    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .nav-links { display: flex; align-items: center; gap: 16px; color: var(--muted); font-size: 13px; font-weight: 700; }
     .nav-links a { padding: 6px 8px; border-radius: 10px; transition: all .2s ease; }
     .nav-links a:hover { color: var(--navy); background: var(--lavender-soft); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* MUSIC PLAYER PILL DI HEADER */
+    .music-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1.5px solid #e1d6ff;
+      background: linear-gradient(135deg, #f6f1ff 0%, #fff0f7 100%);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 4px 12px rgba(184, 164, 255, 0.16);
+    }
+    .music-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(184, 164, 255, 0.28);
+    }
+    .music-icon-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff7eb3, #a488fc);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+    .music-pill.playing .music-icon-circle {
+      animation: pulseMusic 1.5s infinite;
+    }
+    @keyframes pulseMusic {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.14); }
+    }
+    .music-label {
+      max-width: 145px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .nav-cta {
-      padding: 11px 18px;
+      padding: 10px 16px;
       border-radius: 999px;
       color: var(--white);
       background: linear-gradient(135deg, #6ea8fe 0%, #b8a4ff 55%, #ff9ec7 100%);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
       box-shadow: 0 8px 20px rgba(184, 164, 255, 0.35);
       transition: transform .2s ease, box-shadow .2s ease;
+      white-space: nowrap;
     }
     .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(184, 164, 255, 0.48); }
     .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); color: var(--navy); cursor: pointer; }
@@ -451,7 +503,7 @@
     .method-card p { color: var(--muted); font-size: 12.5px; line-height: 1.55; }
     .method-tag { display: inline-block; margin-top: 16px; padding: 5px 10px; border-radius: 999px; color: #5b46b5; background: var(--lavender-soft); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 
-    /* 3. PERAN SDGS (SDG 3, SDG 4, SDG 16 + LOGO) */
+    /* 3. PERAN SDGS */
     .sdgs-section {
       margin-top: 96px;
       padding: 78px 0 82px;
@@ -476,7 +528,6 @@
     }
     .sdg-card:hover { transform: translateY(-4px); }
     .sdg-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    /* Official SDG Color Badges with Logo Icon */
     .sdg-logo-box {
       width: 64px;
       height: 64px;
@@ -509,52 +560,7 @@
       text-transform: uppercase;
     }
 
-    /* 4. PRE-TEST (5 EPISODE) */
-    .episode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .episode-card {
-      position: relative;
-      min-height: 220px;
-      padding: 25px;
-      border: 1.5px solid var(--line);
-      border-radius: var(--radius-md);
-      background: var(--white);
-      box-shadow: 0 10px 26px rgba(133, 118, 214, 0.06);
-    }
-    .episode-card.active {
-      grid-column: span 2;
-      color: var(--navy);
-      border-color: #d6c8ff;
-      background: linear-gradient(135deg, #e7f3ff 0%, #f1e7ff 55%, #ffe8f3 100%);
-      box-shadow: var(--shadow);
-    }
-    .episode-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 64px;
-      height: 28px;
-      margin-bottom: 20px;
-      padding: 0 12px;
-      border-radius: 999px;
-      color: #5b46b5;
-      background: var(--lavender-soft);
-      font: 700 11px 'Space Grotesk', sans-serif;
-      letter-spacing: .08em;
-    }
-    .episode-card.active .episode-number { color: var(--white); background: linear-gradient(135deg, #5d9dfd, #a488fc); }
-    .episode-card h3 { margin-bottom: 9px; color: var(--navy); font-size: 22px; }
-    .episode-card p { max-width: 480px; color: var(--muted); font-size: 13.5px; }
-    .episode-card .coming { position: absolute; top: 24px; right: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .episode-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 22px; }
-    .episode-actions .btn { min-height: 42px; font-size: 13px; }
-    .episode-url { color: var(--muted); font-size: 11px; font-weight: 600; }
-    .episode-card:not(.active)::after { content: 'SEGERA HADIR'; position: absolute; right: 22px; bottom: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
-    .pretest-kit { display: flex; align-items: center; gap: 18px; margin-top: 22px; padding: 14px; border-radius: 16px; background: rgba(255,255,255,.75); border: 1px solid var(--white); }
-    .pretest-qr { width: 88px; height: 88px; padding: 4px; border-radius: 10px; background: var(--white); }
-    .pretest-kit strong { display: block; margin-bottom: 3px; color: var(--navy); font-family: 'Space Grotesk', sans-serif; font-size: 15px; }
-    .pretest-kit span { display: block; color: var(--muted); font-size: 12px; }
-
-    /* 5. VIDEO DIGI SHELTER / WA-CAST (5 EPISODE) */
+    /* 4. VIDEO DIGI SHELTER / WA-CAST (5 EPISODE) */
     .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .video-card {
       position: relative;
@@ -592,7 +598,7 @@
     .video-actions .btn { min-height: 40px; color: var(--white); background: linear-gradient(135deg, #ff758c, #ff7eb3); font-size: 12px; box-shadow: 0 8px 18px rgba(255, 117, 140, 0.25); }
     .video-card:not(.active)::after { content: 'SEGERA HADIR'; position: absolute; right: 22px; bottom: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
 
-    /* 6. GAMES */
+    /* 5. GAMES */
     .game-card { overflow: hidden; border: 1.5px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
     .game-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 27px 30px 21px; }
     .game-top h3 { color: var(--navy); font-size: 25px; }
@@ -603,7 +609,7 @@
     .game-fallback { padding: 0 30px 27px; color: var(--muted); font-size: 12px; }
     .game-fallback a { color: #5b46b5; font-weight: 700; text-decoration: underline; }
 
-    /* 7. TIM PENGEMBANG */
+    /* 6. TIM PENGEMBANG */
     .mentor {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -638,10 +644,10 @@
     .team-card .role { min-height: 34px; color: #6b4ce6; font-size: 10px; }
     .team-card p { color: var(--muted); font-size: 12px; }
 
-    /* 8. KONTAK (PALING BAWAH SEBELUM FOOTER) */
+    /* 7. KONTAK */
     .contact-section {
       margin-top: 96px;
-      padding: 84px 0 88px;
+      padding: 84px 0 80px;
       background: linear-gradient(180deg, #f5f0ff 0%, #eef6ff 100%);
       border-top: 1.5px solid var(--line);
     }
@@ -665,17 +671,20 @@
     .contact-card p { margin-bottom: 14px; color: var(--muted); font-size: 12.5px; }
     .contact-card a { color: #5b46b5; font-size: 13px; font-weight: 700; word-break: break-word; }
 
-    /* PEMBATAS & FOOTER HAK CIPTA RATA TENGAH */
-    .footer-divider {
-      height: 4px;
-      background: linear-gradient(90deg, var(--aurora-mint), var(--aurora-blue), var(--aurora-lavender), var(--aurora-pink));
-      border: 0;
-    }
+    /* FOOTER DENGAN PEMBATAS LEBIH PENDEK & RATA TENGAH */
     footer {
-      padding: 44px 20px;
+      padding: 36px 20px 44px;
       color: var(--navy);
       background: var(--white);
       text-align: center;
+    }
+    .footer-divider {
+      width: 140px;
+      height: 4px;
+      margin: 0 auto 24px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--aurora-mint), var(--aurora-blue), var(--aurora-lavender), var(--aurora-pink));
+      border: 0;
     }
     .footer-center {
       max-width: 680px;
@@ -683,7 +692,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     .footer-brand {
       color: var(--navy);
@@ -699,15 +708,27 @@
       font-size: 13px;
     }
     .footer-copyright {
-      margin-top: 8px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      width: 100%;
+      margin-top: 6px;
       color: var(--muted);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
     }
 
+    /* Hidden YouTube Audio Player Container */
+    #yt-music-player {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+      bottom: 0;
+      left: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .music-label { max-width: 105px; }
+      .nav-cta { display: none; }
+    }
     @media (max-width: 980px) {
       .hero-grid { grid-template-columns: 1fr; gap: 35px; }
       .method { grid-template-columns: repeat(3, 1fr); }
@@ -722,15 +743,14 @@
       .nav-links { display: none; position: absolute; top: 70px; left: 14px; right: 14px; padding: 15px; flex-direction: column; align-items: stretch; gap: 4px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 16px 30px rgba(0,0,0,.08); }
       .nav-links.open { display: flex; }
       .nav-links a { display: block; padding: 10px 12px; }
-      .nav-cta { display: none; }
+      .music-label { max-width: 90px; }
       .hero { padding: 38px 0 50px; }
-      .hero-stats, .quick-grid, .method, .team-grid, .about-grid, .episode-grid, .contact-grid, .video-grid { grid-template-columns: 1fr; }
+      .hero-stats, .quick-grid, .method, .team-grid, .about-grid, .contact-grid, .video-grid { grid-template-columns: 1fr; }
       .quick-item { border-right: 0; border-bottom: 1px solid var(--line); }
       .quick-item:last-child { border-bottom: 0; }
       .section { padding-top: 72px; }
       .section-heading { display: block; }
       .section-intro { margin-top: 12px; }
-      .episode-card.active { grid-column: auto; }
       .game-top { display: block; }
       .game-badge { display: inline-block; margin-top: 12px; }
       .game-frame iframe { height: 440px; }
@@ -740,7 +760,7 @@
   </style>
 </head>
 <body>
-  <!-- HEADER DENGAN LOGO DIGI SHELTER DI POJOK KIRI ATAS -->
+  <!-- HEADER DENGAN LOGO & PEMUTAR LAGU -->
   <header class="topbar">
     <nav class="nav container" aria-label="Navigasi utama">
       <a class="brand" href="#home" aria-label="Digi Shelter, kembali ke beranda">
@@ -755,25 +775,34 @@
         </div>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <!-- URUTAN NAVIGASI SISTEMATIS -->
       <div class="nav-links">
         <a href="#tentang">Tentang</a>
         <a href="#alur">5 Tahap</a>
         <a href="#sdgs">SDGs</a>
-        <a href="#episode">Pre-Test</a>
         <a href="#video">Wa-Cast</a>
         <a href="#games">Games</a>
         <a href="#tim">Tim</a>
         <a href="#kontak">Kontak</a>
       </div>
 
-      <a class="nav-cta" href="#video">Tonton Wa-Cast <i class="fa-solid fa-play"></i></a>
+      <div class="nav-right">
+        <!-- PEMUTAR LAGU SAL PRIADI - BESOK KITA PERGI MAKAN -->
+        <button type="button" class="music-pill" id="music-toggle-btn" title="Putar lagu: Sal Priadi - Besok Kita Pergi Makan">
+          <span class="music-icon-circle"><i class="fa-solid fa-play" id="music-icon"></i></span>
+          <span class="music-label" id="music-text">Sal Priadi · Putar Lagu</span>
+        </button>
+
+        <a class="nav-cta" href="#video">Tonton Wa-Cast <i class="fa-solid fa-play"></i></a>
+
+        <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </nav>
   </header>
+
+  <!-- Hidden YouTube Player untuk Audio Aman Hak Cipta -->
+  <div id="yt-music-player"></div>
 
   <main>
     <!-- HERO SECTION PASTEL AURORA KAWAII -->
@@ -792,7 +821,7 @@
             
             <div class="hero-actions">
               <a class="btn btn-primary" href="https://secreto.site/id/aretx7" target="_blank" rel="noopener"><i class="fa-solid fa-paper-plane"></i> Sampaikan Aspirasi</a>
-              <a class="btn btn-secondary" href="#episode"><i class="fa-solid fa-pen-to-square"></i> Isi Pre-Test Episode</a>
+              <a class="btn btn-secondary" href="#video"><i class="fa-brands fa-youtube"></i> Tonton Wa-Cast</a>
             </div>
 
             <div class="hero-stats">
@@ -849,7 +878,7 @@
       <div class="about-grid">
         <article class="about-main">
           <h3>Digi Shelter menjembatani komunikasi antara murid, guru, BK, dan manajemen sekolah.</h3>
-          <p>Melalui ruang penyampaian aspirasi yang nyaman dan beretika, siswa dapat menyampaikan keluhan, pertanyaan, maupun keresahan. Tim kemudian mengolahnya menjadi bahan eksplorasi, diskusi Wa-Cast, serta konten edukatif yang ramah remaja.</p>
+          <p>Melalui ruang penyampaian aspirasi yang nyaman dan beretika di <strong>Secreto Ft. Watisa Talks</strong>, siswa dapat menyampaikan keluhan, pertanyaan, maupun keresahan. Tim kemudian mengolahnya menjadi bahan eksplorasi, diskusi Wa-Cast, serta konten edukatif yang ramah remaja.</p>
           <p>Program ini digerakkan langsung oleh siswa (<em>student-led action</em>) untuk mendukung kesehatan mental, transparansi informasi, dan lingkungan sekolah yang suportif.</p>
         </article>
         <div class="about-pillar">
@@ -860,7 +889,7 @@
       </div>
     </section>
 
-    <!-- 2. MEKANISME 5 TAHAP (REVISI INVESTIGATE, RESPOND, SHARE) -->
+    <!-- 2. MEKANISME 5 TAHAP -->
     <section class="section container" id="alur">
       <div class="section-heading">
         <div><div class="kicker">02 · Bagaimana Kami Bekerja</div><h2>Lima tahap dari aspirasi menjadi aksi nyata.</h2></div>
@@ -870,7 +899,7 @@
         <article class="method-card">
           <div class="step">01</div>
           <h3>Identify</h3>
-          <p>Menjaring isu dan keresahan murid melalui Digi Shelter Ft. Secreto Watisa Talks.</p>
+          <p>Menjaring isu dan keresahan murid melalui <strong>Secreto Ft. Watisa Talks</strong>.</p>
           <span class="method-tag">Dengar</span>
         </article>
         <article class="method-card">
@@ -900,7 +929,7 @@
       </div>
     </section>
 
-    <!-- 3. PERAN SDGS (SDG 3, SDG 4, SDG 16 + LOGO) -->
+    <!-- 3. PERAN SDGS -->
     <section class="sdgs-section" id="sdgs">
       <div class="container">
         <div class="section-heading">
@@ -953,37 +982,10 @@
       </div>
     </section>
 
-    <!-- 4. SEGMEN PRE-TEST (5 EPISODE) -->
-    <section class="section container" id="episode">
-      <div class="section-heading">
-        <div><div class="kicker">04 · Pre-Test Per Episode</div><h2>Mulai dari refleksi sebelum menyimak pembahasan.</h2></div>
-        <p class="section-intro">Pre-test membantu memetakan pemahaman awal siswa terhadap topik di setiap episode Digi Shelter.</p>
-      </div>
-      <div class="episode-grid">
-        <article class="episode-card active">
-          <span class="episode-number">EPISODE 01</span>
-          <h3>Pertemanan Toxic di SMP</h3>
-          <p>Mengenali tanda-tanda hubungan pertemanan yang tidak sehat, memahami batas diri, dan mencari cara merespons dengan aman.</p>
-          <div class="pretest-kit">
-            <img class="pretest-qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSc93eRA2o5P4ObfDy9kLJtSu_Wybbplx1bBvrNYlHD4RVmCCA%2Fviewform&size=220&margin=2" alt="QR code Pre-Test Episode 1" />
-            <div><strong>Pre-Test Episode 1</strong><span>Scan QR atau klik tombol di bawah untuk mengisi.</span></div>
-          </div>
-          <div class="episode-actions">
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc93eRA2o5P4ObfDy9kLJtSu_Wybbplx1bBvrNYlHD4RVmCCA/viewform" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square"></i> Isi Pre-Test</a>
-            <span class="episode-url">Google Forms · Episode 1</span>
-          </div>
-        </article>
-        <article class="episode-card"><span class="episode-number">EPISODE 02</span><span class="coming">Coming soon</span><h3>Episode 2</h3><p>Formulir pre-test untuk topik kedua sedang disiapkan.</p></article>
-        <article class="episode-card"><span class="episode-number">EPISODE 03</span><span class="coming">Coming soon</span><h3>Episode 3</h3><p>Pre-test dan pembahasan akan hadir di tahap berikutnya.</p></article>
-        <article class="episode-card"><span class="episode-number">EPISODE 04</span><span class="coming">Coming soon</span><h3>Episode 4</h3><p>Ikuti terus pembaruan Digi Shelter untuk topik selanjutnya.</p></article>
-        <article class="episode-card"><span class="episode-number">EPISODE 05</span><span class="coming">Coming soon</span><h3>Episode 5</h3><p>Episode penutup seri pertama akan segera diumumkan.</p></article>
-      </div>
-    </section>
-
-    <!-- 5. VIDEO DIGI SHELTER / WA-CAST (5 EPISODE) -->
+    <!-- 4. VIDEO DIGI SHELTER / WA-CAST (5 EPISODE) -->
     <section class="section container" id="video">
       <div class="section-heading">
-        <div><div class="kicker">05 · Video Digi Shelter (Wa-Cast)</div><h2>Lima episode untuk mendengar, memahami, dan berbagi.</h2></div>
+        <div><div class="kicker">04 · Video Digi Shelter (Wa-Cast)</div><h2>Lima episode untuk mendengar, memahami, dan berbagi.</h2></div>
         <p class="section-intro">Saksikan tayangan Wawancara-Podcast (Wa-Cast) melalui kanal YouTube resmi @smpn193official.</p>
       </div>
       <div class="video-grid">
@@ -1009,10 +1011,10 @@
       </div>
     </section>
 
-    <!-- 6. GAMES -->
+    <!-- 5. GAMES -->
     <section class="section container" id="games">
       <div class="section-heading">
-        <div><div class="kicker">06 · Segmen Games Interaktif</div><h2>Belajar, berefleksi, lalu bermain bersama.</h2></div>
+        <div><div class="kicker">05 · Segmen Games Interaktif</div><h2>Belajar, berefleksi, lalu bermain bersama.</h2></div>
         <p class="section-intro">Kuis interaktif Digi Shelter agar pemahaman topik terasa lebih seru dan menyenangkan.</p>
       </div>
       <article class="game-card">
@@ -1022,10 +1024,10 @@
       </article>
     </section>
 
-    <!-- 7. TIM PENGEMBANG -->
+    <!-- 6. TIM PENGEMBANG -->
     <section class="section container" id="tim">
       <div class="section-heading">
-        <div><div class="kicker">07 · Tim Pengembang</div><h2>WISE Team bekerja sebagai satu kesatuan.</h2></div>
+        <div><div class="kicker">06 · Tim Pengembang</div><h2>WISE Team bekerja sebagai satu kesatuan.</h2></div>
         <p class="section-intro">Setiap anggota membawa peran yang saling melengkapi untuk menjaga riset, komunikasi, produksi, dan aksi tetap berjalan.</p>
       </div>
       <article class="mentor">
@@ -1048,7 +1050,7 @@
           <div class="avatar"><i class="fa-solid fa-address-book"></i></div>
           <h4>Syaika Nadhif Ghifari</h4>
           <span class="role">Sekretaris</span>
-          <p>Mengelola administrasi, mengarsip, dan merekap data pesan siswa dari Digi Shelter Ft. Secreto Watisa Talks.</p>
+          <p>Mengelola administrasi, mengarsip, dan merekap data pesan siswa dari Secreto Ft. Watisa Talks.</p>
         </article>
         <article class="team-card">
           <div class="avatar"><i class="fa-solid fa-user-pen"></i></div>
@@ -1071,18 +1073,18 @@
       </div>
     </section>
 
-    <!-- 8. KONTAK (PALING BAWAH + INSTAGRAM @digi_shelter) -->
+    <!-- 7. KONTAK -->
     <section class="contact-section" id="kontak">
       <div class="container">
         <div class="section-heading">
-          <div><div class="kicker">08 · Kontak & Saluran Resmi</div><h2>Terhubung dengan Digi Shelter.</h2></div>
+          <div><div class="kicker">07 · Kontak & Saluran Resmi</div><h2>Terhubung dengan Digi Shelter.</h2></div>
           <p class="section-intro">Sampaikan aspirasi secara anonim atau ikuti konten edukasi kami melalui kanal resmi di bawah ini.</p>
         </div>
         <div class="contact-grid">
           <article class="contact-card">
             <div class="contact-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-            <h3>Secreto Digi Shelter</h3>
-            <p>Kirimkan pesan, keluh kesah, atau aspirasi secara anonim dan aman.</p>
+            <h3>Secreto Ft. Watisa Talks</h3>
+            <p>Kirimkan pesan, cerita, keluh kesah, atau aspirasi secara anonim dan aman.</p>
             <a href="https://secreto.site/id/aretx7" target="_blank" rel="noopener">secreto.site/id/aretx7 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </article>
           <article class="contact-card">
@@ -1108,11 +1110,9 @@
     </section>
   </main>
 
-  <!-- PEMBATAS TEGAS ANTARA KONTAK & FOOTER -->
-  <hr class="footer-divider" />
-
-  <!-- FOOTER HAK CIPTA RATA TENGAH -->
+  <!-- FOOTER DENGAN GARIS PEMBATAS LEBIH PENDEK & RATA TENGAH -->
   <footer>
+    <hr class="footer-divider" />
     <div class="footer-center">
       <div class="footer-brand">DIGI SHELTER <span>· SMPN 193 JAKARTA</span></div>
       <p class="footer-copy">Wadah advokasi digital berbasis student-led action untuk kesehatan mental dan kesejahteraan siswa.</p>
@@ -1122,7 +1122,9 @@
     </div>
   </footer>
 
+  <!-- SCRIPT MENU MOBILE & YOUTUBE MUSIC PLAYER -->
   <script>
+    // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle && navLinks) {
@@ -1137,6 +1139,58 @@
         });
       });
     }
+
+    // YouTube IFrame API untuk memutar Sal Priadi - Besok Kita Pergi Makan (Aman Hak Cipta)
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let ytPlayer;
+    let isPlaying = false;
+    const musicBtn = document.getElementById('music-toggle-btn');
+    const musicIcon = document.getElementById('music-icon');
+    const musicText = document.getElementById('music-text');
+
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('yt-music-player', {
+        height: '1',
+        width: '1',
+        videoId: 's8C6l1E4lD4', // Official Audio: Sal Priadi - Besok Kita Pergi Makan
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          loop: 1,
+          playlist: 's8C6l1E4lD4'
+        },
+        events: {
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+              isPlaying = true;
+              musicBtn.classList.add('playing');
+              musicIcon.className = 'fa-solid fa-pause';
+              musicText.textContent = 'Besok Kita Pergi Makan';
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+              isPlaying = false;
+              musicBtn.classList.remove('playing');
+              musicIcon.className = 'fa-solid fa-play';
+              musicText.textContent = 'Sal Priadi · Putar Lagu';
+            }
+          }
+        }
+      });
+    }
+
+    if (musicBtn) {
+      musicBtn.addEventListener('click', () => {
+        if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
+        if (isPlaying) {
+          ytPlayer.pauseVideo();
+        } else {
+          ytPlayer.playVideo();
+        }
+      });
+    }
   </script>
 </body>
-            </html>
+                                                                                                                         </html>
