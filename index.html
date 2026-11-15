@@ -671,22 +671,21 @@
     .contact-card p { margin-bottom: 14px; color: var(--muted); font-size: 12.5px; }
     .contact-card a { color: #5b46b5; font-size: 13px; font-weight: 700; word-break: break-word; }
 
-    /* FOOTER DENGAN GARIS SEJAJAR KONTENER PUTIH */
+    /* FOOTER DENGAN BLOK PUTIH UTUH & GARIS SEJAJAR DI DALAMNYA */
     footer {
-      padding: 0 20px 44px;
+      padding: 36px 0 44px;
       color: var(--navy);
       background: var(--white);
       text-align: center;
     }
-    .footer-divider-wrapper {
+    .footer-container {
       width: min(1160px, calc(100% - 40px));
       margin-inline: auto;
-      padding-top: 36px;
-      padding-bottom: 28px;
     }
     .footer-divider {
       width: 100%;
       height: 4px;
+      margin-bottom: 28px;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--aurora-mint), var(--aurora-blue), var(--aurora-lavender), var(--aurora-pink));
       border: 0;
@@ -732,7 +731,7 @@
     }
     @media (max-width: 760px) {
       .container { width: min(100% - 28px, 600px); }
-      .footer-divider-wrapper { width: min(100% - 28px, 600px); }
+      .footer-container { width: min(100% - 28px, 600px); }
       .nav { min-height: 70px; }
       .menu-toggle { display: block; }
       .nav-links { display: none; position: absolute; top: 70px; left: 14px; right: 14px; padding: 15px; flex-direction: column; align-items: stretch; gap: 4px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 16px 30px rgba(0,0,0,.08); }
@@ -755,7 +754,7 @@
   </style>
 </head>
 <body>
-  <!-- AUDIO LOKAL MP3 -->
+  <!-- AUDIO LOKAL MP3 (Murni Klik Manual) -->
   <audio id="bg-audio" src="audiocopper-company-corporate-632428.mp3" preload="auto" loop></audio>
 
   <!-- HEADER DENGAN LOGO & PEMUTAR MUSIK -->
@@ -784,7 +783,7 @@
       </div>
 
       <div class="nav-right">
-        <!-- TOMBOL KONTROL MUSIK -->
+        <!-- TOMBOL KONTROL MUSIK KLIK MANUAL -->
         <button type="button" class="music-pill" id="music-toggle-btn" title="Putar/Jeda Musik">
           <span class="music-icon-circle"><i class="fa-solid fa-play" id="music-icon"></i></span>
           <span class="music-label" id="music-text">Musik Latar · Putar</span>
@@ -1105,21 +1104,21 @@
     </section>
   </main>
 
-  <!-- FOOTER DENGAN GARIS SEJAJAR KONTENER PUTIH -->
+  <!-- FOOTER DENGAN BLOK PUTIH UTUH & GARIS SEJAJAR DI DALAMNYA -->
   <footer>
-    <div class="footer-divider-wrapper">
+    <div class="footer-container">
       <hr class="footer-divider" />
-    </div>
-    <div class="footer-center">
-      <div class="footer-brand">DIGI SHELTER <span>· SMPN 193 JAKARTA</span></div>
-      <p class="footer-copy">Wadah advokasi digital berbasis student-led action untuk kesehatan mental dan kesejahteraan siswa.</p>
-      <div class="footer-copyright">
-        © 2026/2027 WISE Team — Jakarta SDGs Futuremakers. Hak cipta dilindungi undang-undang.
+      <div class="footer-center">
+        <div class="footer-brand">DIGI SHELTER <span>· SMPN 193 JAKARTA</span></div>
+        <p class="footer-copy">Wadah advokasi digital berbasis student-led action untuk kesehatan mental dan kesejahteraan siswa.</p>
+        <div class="footer-copyright">
+          © 2026/2027 WISE Team — Jakarta SDGs Futuremakers. Hak cipta dilindungi undang-undang.
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPT MENU MOBILE, AUDIO, & GOATCOUNTER TRACKER -->
+  <!-- SCRIPT MENU MOBILE, AUDIO KLIK MANUAL, & GOATCOUNTER TRACKER -->
   <script>
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -1137,7 +1136,7 @@
       });
     }
 
-    // Audio Autoplay & Controller Handler
+    // Audio Murni Klik Manual (Tidak Ada Autoplay / Tidak Bunyi Sendiri)
     const audioEl = document.getElementById('bg-audio');
     const musicBtn = document.getElementById('music-toggle-btn');
     const musicIcon = document.getElementById('music-icon');
@@ -1157,25 +1156,15 @@
       musicText.textContent = 'Musik Latar · Putar';
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      audioEl.play().then(setPlayingUI).catch(() => {
-        const unlockAudio = () => {
-          audioEl.play().then(() => {
-            setPlayingUI();
-            document.removeEventListener('click', unlockAudio);
-            document.removeEventListener('touchstart', unlockAudio);
-          });
-        };
-        document.addEventListener('click', unlockAudio);
-        document.addEventListener('touchstart', unlockAudio);
-      });
-    });
-
     if (musicBtn) {
       musicBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         if (audioEl.paused) {
-          audioEl.play().then(setPlayingUI);
+          audioEl.play().then(() => {
+            setPlayingUI();
+          }).catch(err => {
+            console.log("Audio play error:", err);
+          });
         } else {
           audioEl.pause();
           setPausedUI();
