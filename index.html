@@ -671,17 +671,23 @@
     .contact-card p { margin-bottom: 14px; color: var(--muted); font-size: 12.5px; }
     .contact-card a { color: #5b46b5; font-size: 13px; font-weight: 700; word-break: break-word; }
 
-    /* FOOTER DENGAN GARIS PEMBATAS FULL LEBAR DI BAWAH & RATA TENGAH */
+    /* FOOTER DENGAN GARIS SEJAJAR KONTENER PUTIH */
     footer {
-      padding: 36px 20px 44px;
+      padding: 0 20px 44px;
       color: var(--navy);
       background: var(--white);
       text-align: center;
     }
+    .footer-divider-wrapper {
+      width: min(1160px, calc(100% - 40px));
+      margin-inline: auto;
+      padding-top: 36px;
+      padding-bottom: 28px;
+    }
     .footer-divider {
       width: 100%;
       height: 4px;
-      margin-bottom: 28px;
+      border-radius: 999px;
       background: linear-gradient(90deg, var(--aurora-mint), var(--aurora-blue), var(--aurora-lavender), var(--aurora-pink));
       border: 0;
     }
@@ -713,17 +719,6 @@
       font-weight: 600;
     }
 
-    /* Hidden YouTube Audio Player Container */
-    #yt-music-player {
-      position: fixed;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
-      pointer-events: none;
-      bottom: 0;
-      left: 0;
-    }
-
     @media (max-width: 1080px) {
       .music-label { max-width: 105px; }
       .nav-cta { display: none; }
@@ -737,6 +732,7 @@
     }
     @media (max-width: 760px) {
       .container { width: min(100% - 28px, 600px); }
+      .footer-divider-wrapper { width: min(100% - 28px, 600px); }
       .nav { min-height: 70px; }
       .menu-toggle { display: block; }
       .nav-links { display: none; position: absolute; top: 70px; left: 14px; right: 14px; padding: 15px; flex-direction: column; align-items: stretch; gap: 4px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 16px 30px rgba(0,0,0,.08); }
@@ -759,7 +755,10 @@
   </style>
 </head>
 <body>
-  <!-- HEADER DENGAN LOGO & PEMUTAR MUSIK YOUTUBE API -->
+  <!-- AUDIO DIRECT LINK ONLINE BEBAS IKLAN -->
+  <audio id="bg-audio" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3?filename=corporate-ambient-111054.mp3" preload="auto" loop></audio>
+
+  <!-- HEADER DENGAN LOGO & PEMUTAR MUSIK -->
   <header class="topbar">
     <nav class="nav container" aria-label="Navigasi utama">
       <a class="brand" href="#home" aria-label="Digi Shelter, kembali ke beranda">
@@ -785,8 +784,8 @@
       </div>
 
       <div class="nav-right">
-        <!-- TOMBOL PEMUTAR MUSIK DI HEADER -->
-        <button type="button" class="music-pill" id="music-toggle-btn" title="Putar Musik Latar">
+        <!-- TOMBOL KONTROL MUSIK -->
+        <button type="button" class="music-pill" id="music-toggle-btn" title="Putar/Jeda Musik">
           <span class="music-icon-circle"><i class="fa-solid fa-play" id="music-icon"></i></span>
           <span class="music-label" id="music-text">Musik Latar · Putar</span>
         </button>
@@ -800,11 +799,8 @@
     </nav>
   </header>
 
-  <!-- Hidden YouTube Player Container (Aman dari pelanggaran & pasti jalan) -->
-  <div id="yt-music-player"></div>
-
   <main>
-    <!-- HERO SECTION PASTEL AURORA KAWAII -->
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-top-badges">
@@ -815,7 +811,7 @@
 
         <div class="hero-grid">
           <div>
-            <h1>Suara Siswa Didengar, Nyaman & <span class="aurora-text">Terlindungi!</span></h1>
+            <h1>Suara Siswa Didengar, Nyaman &amp; <span class="aurora-text">Terlindungi!</span></h1>
             <p class="hero-copy">Digi Shelter hadir sebagai ruang aman digital yang hangat dan suportif untuk mendukung <strong>kesejahteraan mental, fisik, dan manajemen waktu</strong> seluruh siswa SMPN 193 Jakarta.</p>
             
             <div class="hero-actions">
@@ -827,17 +823,17 @@
               <div class="stat-box">
                 <div class="stat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
                 <b>Ruang Aman</b>
-                <span>Privasi & Etika Terjaga</span>
+                <span>Privasi &amp; Etika Terjaga</span>
               </div>
               <div class="stat-box">
                 <div class="stat-icon"><i class="fa-solid fa-podcast"></i></div>
                 <b>5 Episode</b>
-                <span>Serial Wa-Cast & Edukasi</span>
+                <span>Serial Wa-Cast &amp; Edukasi</span>
               </div>
               <div class="stat-box">
                 <div class="stat-icon"><i class="fa-solid fa-seedling"></i></div>
                 <b>3 Tujuan SDGs</b>
-                <span>SDG 3, SDG 4 & SDG 16</span>
+                <span>SDG 3, SDG 4 &amp; SDG 16</span>
               </div>
             </div>
           </div>
@@ -852,7 +848,7 @@
               <p>Jembatan dialog ramah antara siswa, Guru BK, dan pihak sekolah untuk menciptakan lingkungan belajar yang sehat.</p>
               <div class="mascot-tags">
                 <span class="mascot-tag-item"><i class="fa-solid fa-lock"></i> 100% Anonim</span>
-                <span class="mascot-tag-item"><i class="fa-solid fa-hand-holding-heart"></i> Empatik & Solutif</span>
+                <span class="mascot-tag-item"><i class="fa-solid fa-hand-holding-heart"></i> Empatik &amp; Solutif</span>
               </div>
             </div>
           </div>
@@ -864,11 +860,11 @@
       <div class="container quick-grid">
         <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-list-check"></i></div><div><b>5 Tahap Aksi</b><span>Alur advokasi sistematis</span></div></div>
         <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-people-group"></i></div><div><b>WISE Team</b><span>Penggerak student-led action</span></div></div>
-        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-globe"></i></div><div><b>SDGs 3, 4 & 16</b><span>Kesehatan, pendidikan & institusi</span></div></div>
+        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-globe"></i></div><div><b>SDGs 3, 4 &amp; 16</b><span>Kesehatan, pendidikan &amp; institusi</span></div></div>
       </div>
     </section>
 
-    <!-- 1. TENTANG DIGI SHELTER -->
+    <!-- 1. TENTANG -->
     <section class="section container" id="tentang">
       <div class="section-heading">
         <div><div class="kicker">01 · Tentang Digi Shelter</div><h2>Ketika suara siswa punya tempat untuk bertumbuh.</h2></div>
@@ -881,14 +877,14 @@
           <p>Program ini digerakkan langsung oleh siswa (<em>student-led action</em>) untuk mendukung kesehatan mental, transparansi informasi, dan lingkungan sekolah yang suportif.</p>
         </article>
         <div class="about-pillar">
-          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-shield-heart"></i></div><div><h4>Ruang Aman & Nyaman</h4><p>Tempat berbagi cerita dan aspirasi secara anonim serta beretika.</p></div></div>
+          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-shield-heart"></i></div><div><h4>Ruang Aman &amp; Nyaman</h4><p>Tempat berbagi cerita dan aspirasi secara anonim serta beretika.</p></div></div>
           <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-people-arrows"></i></div><div><h4>Student-Led Action</h4><p>Siswa berperan aktif dalam riset, wawancara, dan penyusunan solusi.</p></div></div>
-          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-scale-balanced"></i></div><div><h4>Transparansi & Edukasi</h4><p>Hasil diskusi dibagikan melalui Wa-Cast dan Digi Shelter Education.</p></div></div>
+          <div class="pillar"><div class="pillar-icon"><i class="fa-solid fa-scale-balanced"></i></div><div><h4>Transparansi &amp; Edukasi</h4><p>Hasil diskusi dibagikan melalui Wa-Cast dan Digi Shelter Education.</p></div></div>
         </div>
       </div>
     </section>
 
-    <!-- 2. MEKANISME 5 TAHAP -->
+    <!-- 2. ALUR 5 TAHAP -->
     <section class="section container" id="alur">
       <div class="section-heading">
         <div><div class="kicker">02 · Bagaimana Kami Bekerja</div><h2>Lima tahap dari aspirasi menjadi aksi nyata.</h2></div>
@@ -932,7 +928,7 @@
     <section class="sdgs-section" id="sdgs">
       <div class="container">
         <div class="section-heading">
-          <div><div class="kicker">03 · Digi Shelter & SDGs</div><h2>Tiga tujuan global yang menjadi arah gerakan kami.</h2></div>
+          <div><div class="kicker">03 · Digi Shelter &amp; SDGs</div><h2>Tiga tujuan global yang menjadi arah gerakan kami.</h2></div>
           <p class="section-intro">Mendukung kesehatan mental siswa, kualitas lingkungan belajar, serta tata kelola sekolah yang partisipatif.</p>
         </div>
         <div class="sdg-grid">
@@ -943,11 +939,11 @@
                   <strong>3</strong>
                   <i class="fa-solid fa-heart-pulse"></i>
                 </div>
-                <h3>SDGs 3 — Kehidupan Sehat & Sejahtera</h3>
+                <h3>SDGs 3 — Kehidupan Sehat &amp; Sejahtera</h3>
               </div>
               <p>Mendorong promosi kesehatan mental dan kesejahteraan psikologis remaja di lingkungan sekolah agar siswa tumbuh sehat secara emosional.</p>
             </div>
-            <small>Target 3.4 · Kesehatan Mental & Well-Being</small>
+            <small>Target 3.4 · Kesehatan Mental &amp; Well-Being</small>
           </article>
 
           <article class="sdg-card">
@@ -961,7 +957,7 @@
               </div>
               <p>Mewujudkan lingkungan belajar yang inklusif, aman, ramah anak, bebas perundungan, dan mendukung perkembangan karakter siswa.</p>
             </div>
-            <small>Target 4.a · Lingkungan Belajar Aman & Inklusif</small>
+            <small>Target 4.a · Lingkungan Belajar Aman &amp; Inklusif</small>
           </article>
 
           <article class="sdg-card">
@@ -975,7 +971,7 @@
               </div>
               <p>Mendorong komunikasi sekolah yang transparan, akuntabel, responsif, dan memberikan ruang partisipasi bermakna bagi suara siswa.</p>
             </div>
-            <small>Target 16.6 & 16.7 · Tata Kelola Partisipatif</small>
+            <small>Target 16.6 &amp; 16.7 · Tata Kelola Partisipatif</small>
           </article>
         </div>
       </div>
@@ -1054,19 +1050,19 @@
         <article class="team-card">
           <div class="avatar"><i class="fa-solid fa-user-pen"></i></div>
           <h4>Nararya Nur Hasna</h4>
-          <span class="role">Humas & Presentasi</span>
+          <span class="role">Humas &amp; Presentasi</span>
           <p>Berkomunikasi dengan Guru/BK, mengurus perizinan wawancara, dan menyampaikan hasil.</p>
         </article>
         <article class="team-card">
           <div class="avatar"><i class="fa-solid fa-clapperboard"></i></div>
           <h4>Dinara Ardella Putri</h4>
-          <span class="role">Kreatif & Editor</span>
+          <span class="role">Kreatif &amp; Editor</span>
           <p>Mengedit video dan foto wawancara, mendesain media visual, dan mengeksekusi publikasi.</p>
         </article>
         <article class="team-card">
           <div class="avatar"><i class="fa-solid fa-magnifying-glass"></i></div>
           <h4>Asyifa Aulia Noorsy</h4>
-          <span class="role">Riset & Operasional</span>
+          <span class="role">Riset &amp; Operasional</span>
           <p>Meneliti materi, mewawancarai siswa di lapangan, menulis skrip, dan mengelola operasional.</p>
         </article>
       </div>
@@ -1076,7 +1072,7 @@
     <section class="contact-section" id="kontak">
       <div class="container">
         <div class="section-heading">
-          <div><div class="kicker">07 · Kontak & Saluran Resmi</div><h2>Terhubung dengan Digi Shelter.</h2></div>
+          <div><div class="kicker">07 · Kontak &amp; Saluran Resmi</div><h2>Terhubung dengan Digi Shelter.</h2></div>
           <p class="section-intro">Sampaikan aspirasi secara anonim atau ikuti konten edukasi kami melalui kanal resmi di bawah ini.</p>
         </div>
         <div class="contact-grid">
@@ -1109,9 +1105,11 @@
     </section>
   </main>
 
-  <!-- FOOTER DENGAN GARIS PEMBATAS FULL DI BAWAH & RATA TENGAH -->
+  <!-- FOOTER DENGAN GARIS SEJAJAR KONTENER PUTIH -->
   <footer>
-    <hr class="footer-divider" />
+    <div class="footer-divider-wrapper">
+      <hr class="footer-divider" />
+    </div>
     <div class="footer-center">
       <div class="footer-brand">DIGI SHELTER <span>· SMPN 193 JAKARTA</span></div>
       <p class="footer-copy">Wadah advokasi digital berbasis student-led action untuk kesehatan mental dan kesejahteraan siswa.</p>
@@ -1121,7 +1119,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT MENU MOBILE, AUDIO API & TRACKER PENGUNJUNG DIAM-DIAM -->
+  <!-- SCRIPT MENU MOBILE, AUDIO & TRACKER PENGUNJUNG -->
   <script>
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -1139,57 +1137,48 @@
       });
     }
 
-    // YouTube IFrame API untuk Musik Latar
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    let ytPlayer;
-    let isPlaying = false;
+    // Audio Autoplay & Controller Handler
+    const audioEl = document.getElementById('bg-audio');
     const musicBtn = document.getElementById('music-toggle-btn');
     const musicIcon = document.getElementById('music-icon');
     const musicText = document.getElementById('music-text');
 
-    function onYouTubeIframeAPIReady() {
-      ytPlayer = new YT.Player('yt-music-player', {
-        height: '1',
-        width: '1',
-        videoId: 'jYIcxdDuGMk', // Audio YouTube Resmi
-        playerVars: {
-          autoplay: 1,
-          controls: 0,
-          loop: 1,
-          playlist: 'jYIcxdDuGMk'
-        },
-        events: {
-          onReady: function(event) {
-            event.target.playVideo();
-          },
-          onStateChange: function(event) {
-            if (event.data === YT.PlayerState.PLAYING) {
-              isPlaying = true;
-              musicBtn.classList.add('playing');
-              musicIcon.className = 'fa-solid fa-pause';
-              musicText.textContent = 'Musik Latar Aktif';
-            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-              isPlaying = false;
-              musicBtn.classList.remove('playing');
-              musicIcon.className = 'fa-solid fa-play';
-              musicText.textContent = 'Musik Latar · Putar';
-            }
-          }
-        }
-      });
+    audioEl.volume = 0.4;
+
+    function setPlayingUI() {
+      musicBtn.classList.add('playing');
+      musicIcon.className = 'fa-solid fa-pause';
+      musicText.textContent = 'Musik Latar Aktif';
     }
 
+    function setPausedUI() {
+      musicBtn.classList.remove('playing');
+      musicIcon.className = 'fa-solid fa-play';
+      musicText.textContent = 'Musik Latar · Putar';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      audioEl.play().then(setPlayingUI).catch(() => {
+        const unlockAudio = () => {
+          audioEl.play().then(() => {
+            setPlayingUI();
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+          });
+        };
+        document.addEventListener('click', unlockAudio);
+        document.addEventListener('touchstart', unlockAudio);
+      });
+    });
+
     if (musicBtn) {
-      musicBtn.addEventListener('click', () => {
-        if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
-        if (isPlaying) {
-          ytPlayer.pauseVideo();
+      musicBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (audioEl.paused) {
+          audioEl.play().then(setPlayingUI);
         } else {
-          ytPlayer.playVideo();
+          audioEl.pause();
+          setPausedUI();
         }
       });
     }
