@@ -671,7 +671,7 @@
     .contact-card p { margin-bottom: 14px; color: var(--muted); font-size: 12.5px; }
     .contact-card a { color: #5b46b5; font-size: 13px; font-weight: 700; word-break: break-word; }
 
-    /* FOOTER DENGAN GARIS PEMBATAS FULL SEGARIS DIBAWAH & RATA TENGAH */
+    /* FOOTER DENGAN GARIS PEMBATAS FULL LEBAR DI BAWAH & RATA TENGAH */
     footer {
       padding: 36px 20px 44px;
       color: var(--navy);
@@ -713,6 +713,17 @@
       font-weight: 600;
     }
 
+    /* Hidden YouTube Audio Player Container */
+    #yt-music-player {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+      bottom: 0;
+      left: 0;
+    }
+
     @media (max-width: 1080px) {
       .music-label { max-width: 105px; }
       .nav-cta { display: none; }
@@ -748,10 +759,7 @@
   </style>
 </head>
 <body>
-  <!-- HTML5 AUDIO PLAYER (Royalty-Free CC0 MP3) - AutoPlay On Load -->
-  <audio id="bg-audio" src="Sal Priadi - Besok Kita Pergi Makan (Official Audio).mp3" preload="auto" loop></audio>
-
-  <!-- HEADER DENGAN LOGO & TOMBOL KONTROL MUSIK -->
+  <!-- HEADER DENGAN LOGO & PEMUTAR MUSIK YOUTUBE API -->
   <header class="topbar">
     <nav class="nav container" aria-label="Navigasi utama">
       <a class="brand" href="#home" aria-label="Digi Shelter, kembali ke beranda">
@@ -777,10 +785,10 @@
       </div>
 
       <div class="nav-right">
-        <!-- TOMBOL KONTROL AUDIO -->
-        <button type="button" class="music-pill" id="music-toggle-btn" title="Putar/Jeda Musik">
+        <!-- TOMBOL PEMUTAR MUSIK DI HEADER -->
+        <button type="button" class="music-pill" id="music-toggle-btn" title="Putar Musik Latar">
           <span class="music-icon-circle"><i class="fa-solid fa-play" id="music-icon"></i></span>
-          <span class="music-label" id="music-text">Lagu CC0 · Putar</span>
+          <span class="music-label" id="music-text">Musik Latar · Putar</span>
         </button>
 
         <a class="nav-cta" href="#video">Tonton Wa-Cast <i class="fa-solid fa-play"></i></a>
@@ -791,6 +799,9 @@
       </div>
     </nav>
   </header>
+
+  <!-- Hidden YouTube Player Container (Aman dari pelanggaran & pasti jalan) -->
+  <div id="yt-music-player"></div>
 
   <main>
     <!-- HERO SECTION PASTEL AURORA KAWAII -->
@@ -1098,7 +1109,7 @@
     </section>
   </main>
 
-  <!-- FOOTER DENGAN GARIS PEMBATAS FULL LEBAR DI BAWAH & RATA TENGAH -->
+  <!-- FOOTER DENGAN GARIS PEMBATAS FULL DI BAWAH & RATA TENGAH -->
   <footer>
     <hr class="footer-divider" />
     <div class="footer-center">
@@ -1110,7 +1121,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT MENU MOBILE, AUDIO AUTOPLAY & TRACKER PENGUNJUNG DIAM-DIAM -->
+  <!-- SCRIPT MENU MOBILE, AUDIO API & TRACKER PENGUNJUNG DIAM-DIAM -->
   <script>
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -1128,52 +1139,68 @@
       });
     }
 
-    // Audio Autoplay & Toggle Controller
-    const audioEl = document.getElementById('bg-audio');
+    // YouTube IFrame API untuk Musik Latar
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let ytPlayer;
+    let isPlaying = false;
     const musicBtn = document.getElementById('music-toggle-btn');
     const musicIcon = document.getElementById('music-icon');
     const musicText = document.getElementById('music-text');
 
-    // Coba langsung mainkan saat halaman dibuka
-    window.addEventListener('DOMContentLoaded', () => {
-      audioEl.volume = 0.5;
-      audioEl.play().then(() => {
-        musicBtn.classList.add('playing');
-        musicIcon.className = 'fa-solid fa-pause';
-        musicText.textContent = 'Memutar Musik';
-      }).catch(error => {
-        // Jika diblokir kebijakan browser sebelum interaksi pengguna
-        console.log("Autoplay dicegah browser, menunggu interaksi pengguna.");
-        musicText.textContent = 'Klik untuk Putar';
-      });
-    });
-
-    if (musicBtn) {
-      musicBtn.addEventListener('click', () => {
-        if (audioEl.paused) {
-          audioEl.play();
-          musicBtn.classList.add('playing');
-          musicIcon.className = 'fa-solid fa-pause';
-          musicText.textContent = 'Memutar Musik';
-        } else {
-          audioEl.pause();
-          musicBtn.classList.remove('playing');
-          musicIcon.className = 'fa-solid fa-play';
-          musicText.textContent = 'Musik Dijeda';
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('yt-music-player', {
+        height: '1',
+        width: '1',
+        videoId: 'jYIcxdDuGMk', // Audio YouTube Resmi
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          loop: 1,
+          playlist: 'jYIcxdDuGMk'
+        },
+        events: {
+          onReady: function(event) {
+            event.target.playVideo();
+          },
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+              isPlaying = true;
+              musicBtn.classList.add('playing');
+              musicIcon.className = 'fa-solid fa-pause';
+              musicText.textContent = 'Musik Latar Aktif';
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+              isPlaying = false;
+              musicBtn.classList.remove('playing');
+              musicIcon.className = 'fa-solid fa-play';
+              musicText.textContent = 'Musik Latar · Putar';
+            }
+          }
         }
       });
     }
 
-    // Pelacak Pengunjung di Background Secara Diam-Diam (Tanpa Ditampilkan di Web)
+    if (musicBtn) {
+      musicBtn.addEventListener('click', () => {
+        if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
+        if (isPlaying) {
+          ytPlayer.pauseVideo();
+        } else {
+          ytPlayer.playVideo();
+        }
+      });
+    }
+
+    // Pelacak Pengunjung di Background Secara Diam-Diam
     fetch('https://api.countapi.xyz/hit/digishelter-smpn193-jakarta/visits', { method: 'GET' })
       .then(response => response.json())
       .then(data => {
-        // Data berhasil direkam di background tanpa memengaruhi UI web
         console.log("Visitor tracked securely.");
       })
-      .catch(err => {
-        // Fallback senyap jika API offline
-      });
+      .catch(err => {});
   </script>
 </body>
 </html>
