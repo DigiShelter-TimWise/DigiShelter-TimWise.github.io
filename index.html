@@ -1129,7 +1129,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT YOUTUBE API, TOMBOL KLIK MANUAL, & GOATCOUNTER TRACKER -->
+  <!-- SCRIPT YOUTUBE API DENGAN AUTOPLAY / INTENT UTAMA & GOATCOUNTER TRACKER -->
   <script>
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -1147,7 +1147,7 @@
       });
     }
 
-    // YouTube IFrame API Handler (Murni Klik Manual)
+    // YouTube IFrame API Handler (Autoplay saat interaksi pertama / klik pertama di web)
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     const firstScriptTag = document.getElementsByTagName('script')[0];
@@ -1163,14 +1163,18 @@
       ytPlayer = new YT.Player('yt-audio-player', {
         height: '1',
         width: '1',
-        videoId: '4izvOpiNtdg', // ID YouTube Corporate Music Baru
+        videoId: '4izvOpiNtdg',
         playerVars: {
-          autoplay: 0,
+          autoplay: 1, // Meminta autoplay
           controls: 0,
           loop: 1,
           playlist: '4izvOpiNtdg'
         },
         events: {
+          onReady: function(event) {
+            // Coba langsung play (jika browser mengizinkan autoplay langsung)
+            event.target.playVideo();
+          },
           onStateChange: function(event) {
             if (event.data === YT.PlayerState.PLAYING) {
               isPlaying = true;
@@ -1188,6 +1192,7 @@
       });
     }
 
+    // Tombol kontrol klik manual
     if (musicBtn) {
       musicBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -1199,9 +1204,18 @@
         }
       });
     }
+
+    // Trik Autoplay Universal: Jika browser memblokir suara otomatis di awal, 
+    // ketukan/klik pertama di bagian mana saja pada halaman akan langsung menyalakan musiknya!
+    window.addEventListener('click', function unlockAudio() {
+      if (ytPlayer && typeof ytPlayer.playVideo === 'function' && !isPlaying) {
+        ytPlayer.playVideo();
+      }
+      window.removeEventListener('click', unlockAudio);
+    }, { once: true });
   </script>
 
   <!-- GOATCOUNTER VISITOR TRACKER SCRIPT (Nama: digishelter) -->
   <script data-goatcounter="https://digishelter.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
-  </html>
+</html>
