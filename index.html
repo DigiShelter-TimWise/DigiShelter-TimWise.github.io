@@ -718,6 +718,17 @@
       font-weight: 600;
     }
 
+    /* Hidden YouTube Audio Player Container */
+    #yt-audio-player {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+      bottom: 0;
+      left: 0;
+    }
+
     @media (max-width: 1080px) {
       .music-label { max-width: 105px; }
       .nav-cta { display: none; }
@@ -754,10 +765,7 @@
   </style>
 </head>
 <body>
-  <!-- AUDIO LOKAL MP3 (Murni Klik Manual) -->
-  <audio id="bg-audio" src="audiocopper-company-corporate-632428.mp3" preload="auto" loop></audio>
-
-  <!-- HEADER DENGAN LOGO & PEMUTAR MUSIK -->
+  <!-- HEADER DENGAN LOGO & PEMUTAR MUSIK YOUTUBE API -->
   <header class="topbar">
     <nav class="nav container" aria-label="Navigasi utama">
       <a class="brand" href="#home" aria-label="Digi Shelter, kembali ke beranda">
@@ -797,6 +805,9 @@
       </div>
     </nav>
   </header>
+
+  <!-- Hidden YouTube Audio Player Container -->
+  <div id="yt-audio-player"></div>
 
   <main>
     <!-- HERO SECTION -->
@@ -1118,7 +1129,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT MENU MOBILE, AUDIO KLIK MANUAL, & GOATCOUNTER TRACKER -->
+  <!-- SCRIPT YOUTUBE API, TOMBOL KLIK MANUAL, & GOATCOUNTER TRACKER -->
   <script>
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -1136,44 +1147,61 @@
       });
     }
 
-    // Audio Murni Klik Manual (Tidak Ada Autoplay / Tidak Bunyi Sendiri)
-    const audioEl = document.getElementById('bg-audio');
+    // YouTube IFrame API Handler (Murni Klik Manual)
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let ytPlayer;
+    let isPlaying = false;
     const musicBtn = document.getElementById('music-toggle-btn');
     const musicIcon = document.getElementById('music-icon');
     const musicText = document.getElementById('music-text');
 
-    audioEl.volume = 0.4;
-
-    function setPlayingUI() {
-      musicBtn.classList.add('playing');
-      musicIcon.className = 'fa-solid fa-pause';
-      musicText.textContent = 'Musik Latar Aktif';
-    }
-
-    function setPausedUI() {
-      musicBtn.classList.remove('playing');
-      musicIcon.className = 'fa-solid fa-play';
-      musicText.textContent = 'Musik Latar · Putar';
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('yt-audio-player', {
+        height: '1',
+        width: '1',
+        videoId: '4izvOpiNtdg', // ID YouTube Corporate Music Baru
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          loop: 1,
+          playlist: '4izvOpiNtdg'
+        },
+        events: {
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+              isPlaying = true;
+              musicBtn.classList.add('playing');
+              musicIcon.className = 'fa-solid fa-pause';
+              musicText.textContent = 'Musik Latar Aktif';
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+              isPlaying = false;
+              musicBtn.classList.remove('playing');
+              musicIcon.className = 'fa-solid fa-play';
+              musicText.textContent = 'Musik Latar · Putar';
+            }
+          }
+        }
+      });
     }
 
     if (musicBtn) {
       musicBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (audioEl.paused) {
-          audioEl.play().then(() => {
-            setPlayingUI();
-          }).catch(err => {
-            console.log("Audio play error:", err);
-          });
+        if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
+        if (isPlaying) {
+          ytPlayer.pauseVideo();
         } else {
-          audioEl.pause();
-          setPausedUI();
+          ytPlayer.playVideo();
         }
       });
     }
   </script>
 
-  <!-- GOATCOUNTER VISITOR TRACKER SCRIPT -->
+  <!-- GOATCOUNTER VISITOR TRACKER SCRIPT (Nama: digishelter) -->
   <script data-goatcounter="https://digishelter.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
-</html>
+  </html>
