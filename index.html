@@ -3,33 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Digi Shelter SMPN 193 Jakarta — wadah advokasi digital berbasis student-led action untuk transparansi dan kesejahteraan psikologis siswa." />
-  <title>Digi Shelter — Student-Led Advocacy | SMPN 193 Jakarta</title>
+  <meta name="description" content="Inovasi Edukasi Digital Berbasis Aspirasi Siswa Untuk Mewujudkan Lingkungan Sekolah yang Aman, Inklusif, dan Peduli Kesejahteraan Psikologis — Digi Shelter SMPN 193 Jakarta." />
+  <title>Inovasi Edukasi Digital Berbasis Aspirasi Siswa Untuk Mewujudkan Lingkungan Sekolah yang Aman, Inklusif, dan Peduli Kesejahteraan Psikologis | Digi Shelter</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     :root {
-      /* PALET PASTEL AURORA KAWAII */
-      --ink: #253252;
-      --navy: #1e2d4f;
-      --aurora-blue: #6ea8fe;
-      --aurora-mint: #6be3c8;
-      --aurora-pink: #ff9ec7;
-      --aurora-lavender: #b8a4ff;
-      --aurora-butter: #ffe08a;
-      --aurora-coral: #ff8598;
-      --bg-base: #fdfaff;
-      --sky-soft: #eef6ff;
-      --mint-soft: #ebfbf7;
-      --pink-soft: #fff0f7;
-      --lavender-soft: #f3efff;
-      --butter-soft: #fff9e6;
-      --muted: #647494;
-      --line: #e4def7;
+      /* PALET PASTEL AURORA KAWAII KONTRAS TINGGI */
+      --ink: #1b2848;
+      --navy: #142242;
+      --aurora-blue: #4c8df6;
+      --aurora-mint: #2ec4a6;
+      --aurora-pink: #f45d9c;
+      --aurora-lavender: #8c6ff7;
+      --aurora-butter: #f5be38;
+      --bg-base: #faf6ff;
+      --sky-soft: #e6f1ff;
+      --mint-soft: #dcf9f2;
+      --pink-soft: #ffe2ef;
+      --lavender-soft: #ece5ff;
+      --butter-soft: #fff2c6;
+      --muted: #4e5e82;
+      --line: #d6cbf7;
       --white: #ffffff;
-      --shadow: 0 18px 45px rgba(133, 118, 214, 0.12);
+      --shadow: 0 18px 42px rgba(96, 79, 188, 0.14);
       --radius-lg: 32px;
       --radius-md: 22px;
     }
@@ -39,7 +38,10 @@
     body {
       min-width: 320px;
       color: var(--ink);
-      background: var(--bg-base);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(76, 141, 246, 0.14) 0%, transparent 40%),
+        radial-gradient(circle at 92% 10%, rgba(244, 93, 156, 0.14) 0%, transparent 40%),
+        var(--bg-base);
       font-family: 'DM Sans', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
@@ -48,13 +50,13 @@
     button { font: inherit; }
     .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
 
-    /* TOPBAR DENGAN LOGO */
+    /* TOPBAR */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 30;
-      border-bottom: 1px solid rgba(184, 164, 255, 0.25);
-      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1.5px solid rgba(140, 111, 247, 0.25);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(18px);
     }
     .nav {
@@ -77,13 +79,13 @@
       width: 52px;
       height: 52px;
       border-radius: 16px;
-      background: linear-gradient(135deg, #c2e0ff 0%, #96c7f7 55%, #d6ecff 100%);
-      border: 2px solid #76b2ee;
+      background: linear-gradient(135deg, #b8dcff 0%, #7cb8f8 58%, #d4eaff 100%);
+      border: 2px solid #4c8df6;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px rgba(110, 168, 254, 0.28);
+      box-shadow: 0 8px 20px rgba(76, 141, 246, 0.3);
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -93,8 +95,8 @@
       inset: 0;
       background-image: repeating-linear-gradient(
         -25deg,
-        rgba(255,255,255,0.28) 0px,
-        rgba(255,255,255,0.28) 2px,
+        rgba(255,255,255,0.34) 0px,
+        rgba(255,255,255,0.34) 2px,
         transparent 2px,
         transparent 6px
       );
@@ -111,7 +113,7 @@
       display: block;
       width: 4px;
       height: 8px;
-      background: #14539a;
+      background: #104585;
       border-radius: 99px;
       transform: rotate(-28deg);
     }
@@ -122,8 +124,8 @@
       top: 4px;
       right: 5px;
       font-size: 11px;
-      color: #14539a;
-      opacity: 0.85;
+      color: #104585;
+      opacity: 0.9;
     }
     .logo-wordmark {
       position: relative;
@@ -132,8 +134,8 @@
       font-size: 11.5px;
       line-height: 0.95;
       text-align: center;
-      color: #8ab8e8;
-      -webkit-text-stroke: 1.2px #14539a;
+      color: #82b5ec;
+      -webkit-text-stroke: 1.25px #104585;
       paint-order: stroke fill;
       letter-spacing: 0.01em;
       margin-top: 4px;
@@ -146,7 +148,7 @@
     }
     .brand-text small {
       display: block;
-      color: #6b7ba4;
+      color: #54648a;
       font: 700 9.5px/1.1 'DM Sans', sans-serif;
       letter-spacing: .07em;
       margin-top: 2px;
@@ -166,34 +168,34 @@
       padding: 10px 18px;
       border-radius: 999px;
       color: var(--white);
-      background: linear-gradient(135deg, #6ea8fe 0%, #b8a4ff 55%, #ff9ec7 100%);
+      background: linear-gradient(135deg, #4c8df6 0%, #8c6ff7 55%, #f45d9c 100%);
       font-size: 13px;
       font-weight: 700;
-      box-shadow: 0 8px 20px rgba(184, 164, 255, 0.35);
+      box-shadow: 0 8px 20px rgba(140, 111, 247, 0.38);
       transition: transform .2s ease, box-shadow .2s ease;
       white-space: nowrap;
     }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(184, 164, 255, 0.48); }
-    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); color: var(--navy); cursor: pointer; }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(140, 111, 247, 0.5); }
+    .menu-toggle { display: none; width: 42px; height: 42px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--white); color: var(--navy); cursor: pointer; }
 
-    /* HERO PASTEL AURORA KAWAII */
+    /* HERO KAWAII PASTEL KONTRAS */
     .hero {
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      padding: 54px 0 74px;
+      padding: 50px 0 72px;
       background:
-        radial-gradient(circle at 12% 18%, rgba(107, 227, 200, 0.25) 0%, transparent 45%),
-        radial-gradient(circle at 88% 15%, rgba(255, 158, 199, 0.28) 0%, transparent 48%),
-        radial-gradient(circle at 55% 85%, rgba(184, 164, 255, 0.22) 0%, transparent 50%),
-        linear-gradient(180deg, #f3f9ff 0%, #fdf8ff 65%, #fdfaff 100%);
+        radial-gradient(circle at 12% 18%, rgba(46, 196, 166, 0.28) 0%, transparent 45%),
+        radial-gradient(circle at 88% 15%, rgba(244, 93, 156, 0.28) 0%, transparent 48%),
+        radial-gradient(circle at 55% 88%, rgba(76, 141, 246, 0.24) 0%, transparent 52%),
+        linear-gradient(180deg, #eaf4ff 0%, #f6eeff 55%, #fff2f8 100%);
     }
     .hero-top-badges {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 10px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
     .badge-pill {
       display: inline-flex;
@@ -203,36 +205,36 @@
       border-radius: 999px;
       font-size: 12px;
       font-weight: 700;
-      border: 1.5px solid var(--white);
-      box-shadow: 0 6px 16px rgba(110, 168, 254, 0.12);
+      border: 2px solid var(--white);
+      box-shadow: 0 6px 16px rgba(76, 141, 246, 0.16);
     }
-    .badge-pill.mint { color: #167a67; background: #d9fbf2; }
-    .badge-pill.butter { color: #8c6314; background: #fff3cc; }
-    .badge-pill.pink { color: #a82e68; background: #ffe3f0; }
+    .badge-pill.mint { color: #0d5e4e; background: #c5f7ec; }
+    .badge-pill.butter { color: #754e06; background: #ffe99e; }
+    .badge-pill.pink { color: #961d52; background: #ffd1e6; }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.12fr .88fr;
       align-items: center;
-      gap: 46px;
+      gap: 44px;
     }
-    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.14; }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
     .hero h1 {
-      font-size: clamp(38px, 5vw, 64px);
-      letter-spacing: -.04em;
+      font-size: clamp(28px, 3.6vw, 44px);
+      letter-spacing: -.03em;
       color: var(--navy);
       margin-bottom: 18px;
     }
     .hero h1 span.aurora-text {
-      background: linear-gradient(135deg, #4b8df8 0%, #9b7bf7 50%, #f56fa8 100%);
+      background: linear-gradient(135deg, #2b6fe8 0%, #7a54f5 52%, #e63b86 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero-copy {
-      max-width: 580px;
+      max-width: 590px;
       color: var(--muted);
-      font-size: 16px;
-      margin-bottom: 28px;
+      font-size: 15.5px;
+      margin-bottom: 26px;
     }
     .hero-copy strong { color: var(--navy); }
 
@@ -240,7 +242,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 34px;
+      margin-bottom: 32px;
     }
     .btn {
       display: inline-flex;
@@ -252,19 +254,21 @@
       border-radius: 999px;
       font-size: 14px;
       font-weight: 700;
+      cursor: pointer;
+      border: 0;
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
       color: var(--white);
-      background: linear-gradient(135deg, #5d9dfd 0%, #a488fc 100%);
-      box-shadow: 0 10px 24px rgba(133, 136, 252, 0.34);
+      background: linear-gradient(135deg, #3f82f6 0%, #8360f8 100%);
+      box-shadow: 0 10px 24px rgba(95, 113, 248, 0.38);
     }
     .btn-secondary {
       color: var(--navy);
-      border: 1.5px solid #dfd7fb;
+      border: 2px solid #cfc2fa;
       background: var(--white);
-      box-shadow: 0 6px 16px rgba(133, 118, 214, 0.08);
+      box-shadow: 0 6px 16px rgba(122, 84, 245, 0.12);
     }
     .btn-secondary:hover { background: var(--lavender-soft); }
 
@@ -276,22 +280,22 @@
     .stat-box {
       padding: 18px;
       border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.9);
-      border: 1.5px solid #ebe4fc;
+      background: var(--white);
+      border: 2px solid #dfd4ff;
       box-shadow: var(--shadow);
     }
     .stat-box .stat-icon {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       display: grid;
       place-items: center;
-      border-radius: 10px;
-      font-size: 14px;
+      border-radius: 11px;
+      font-size: 15px;
       margin-bottom: 10px;
     }
-    .stat-box:nth-child(1) .stat-icon { color: #167a67; background: #d9fbf2; }
-    .stat-box:nth-child(2) .stat-icon { color: #a82e68; background: #ffe3f0; }
-    .stat-box:nth-child(3) .stat-icon { color: #5b46b5; background: #ebe4fc; }
+    .stat-box:nth-child(1) .stat-icon { color: #0d5e4e; background: #c5f7ec; }
+    .stat-box:nth-child(2) .stat-icon { color: #961d52; background: #ffd1e6; }
+    .stat-box:nth-child(3) .stat-icon { color: #4c2ec2; background: #e2d7ff; }
     .stat-box b {
       display: block;
       font-family: 'Space Grotesk', sans-serif;
@@ -303,11 +307,11 @@
       display: block;
       margin-top: 4px;
       color: var(--muted);
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 600;
     }
 
-    /* MASCOT CARD AURORA KAWAII */
+    /* MASCOT CARD KAWAII PASTEL */
     .hero-visual-wrapper {
       position: relative;
       display: flex;
@@ -320,24 +324,24 @@
       width: 100%;
       max-width: 430px;
       border-radius: var(--radius-lg);
-      background: linear-gradient(155deg, #e5f5ff 0%, #f4ebff 52%, #ffeaf4 100%);
-      border: 2.5px solid var(--white);
+      background: linear-gradient(155deg, #d7ecff 0%, #eadfff 52%, #ffd9ec 100%);
+      border: 3px solid var(--white);
       padding: 42px 28px 34px;
       text-align: center;
-      box-shadow: 0 24px 55px rgba(155, 123, 247, 0.18);
+      box-shadow: 0 24px 55px rgba(122, 84, 245, 0.22);
     }
     .speech-bubble {
       position: absolute;
       top: -22px;
       right: 16px;
       background: var(--white);
-      border: 2px solid #e3d6ff;
+      border: 2px solid #d6c5ff;
       padding: 11px 16px;
       border-radius: 18px;
       font-size: 12.5px;
       font-weight: 700;
       color: var(--navy);
-      box-shadow: 0 10px 24px rgba(155, 123, 247, 0.14);
+      box-shadow: 0 10px 24px rgba(122, 84, 245, 0.18);
       animation: floatBubble 3.2s ease-in-out infinite;
     }
     .speech-bubble::after {
@@ -348,8 +352,8 @@
       width: 12px;
       height: 12px;
       background: var(--white);
-      border-bottom: 2px solid #e3d6ff;
-      border-right: 2px solid #e3d6ff;
+      border-bottom: 2px solid #d6c5ff;
+      border-right: 2px solid #d6c5ff;
       transform: rotate(45deg);
     }
     @keyframes floatBubble {
@@ -364,10 +368,10 @@
       place-items: center;
       background: var(--white);
       border-radius: 50%;
-      box-shadow: 0 14px 30px rgba(110, 168, 254, 0.22);
+      box-shadow: 0 14px 30px rgba(76, 141, 246, 0.25);
       font-size: 46px;
-      color: #8a6df1;
-      border: 4px solid #f5f0ff;
+      color: #7752f0;
+      border: 4px solid #f0e9ff;
     }
     .mascot-card h3 { font-size: 22px; color: var(--navy); margin-bottom: 8px; }
     .mascot-card p { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
@@ -379,59 +383,59 @@
       color: var(--navy);
       font-size: 11px;
       font-weight: 700;
-      border: 1px solid #e5ddfa;
+      border: 1.5px solid #dcd0ff;
     }
 
     /* QUICK STRIP */
-    .quick-strip { margin-top: 10px; }
+    .quick-strip { margin-top: 12px; }
     .quick-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       overflow: hidden;
-      border: 1.5px solid var(--line);
+      border: 2px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--white);
       box-shadow: var(--shadow);
     }
-    .quick-item { display: flex; align-items: center; gap: 14px; padding: 22px 26px; border-right: 1px solid var(--line); }
+    .quick-item { display: flex; align-items: center; gap: 14px; padding: 22px 26px; border-right: 1.5px solid var(--line); }
     .quick-item:last-child { border-right: 0; }
-    .quick-icon { width: 44px; height: 44px; flex: 0 0 44px; display: grid; place-items: center; border-radius: 14px; color: #4b8df8; background: var(--sky-soft); font-size: 18px; }
-    .quick-item:nth-child(2) .quick-icon { color: #167a67; background: var(--mint-soft); }
-    .quick-item:nth-child(3) .quick-icon { color: #a82e68; background: var(--pink-soft); }
+    .quick-icon { width: 46px; height: 46px; flex: 0 0 46px; display: grid; place-items: center; border-radius: 14px; color: #2b6fe8; background: #d8eaff; font-size: 18px; }
+    .quick-item:nth-child(2) .quick-icon { color: #0d5e4e; background: #c5f7ec; }
+    .quick-item:nth-child(3) .quick-icon { color: #961d52; background: #ffd1e6; }
     .quick-item b { display: block; color: var(--navy); font: 700 20px/1 'Space Grotesk', sans-serif; }
-    .quick-item span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
+    .quick-item span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; font-weight: 500; }
 
     /* GENERAL SECTION STYLING */
-    .section { padding: 96px 0 0; }
+    .section { padding: 92px 0 0; }
     .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
     .kicker {
       display: inline-block;
       margin-bottom: 10px;
-      padding: 4px 12px;
+      padding: 4px 13px;
       border-radius: 999px;
-      background: var(--lavender-soft);
-      color: #6b4ce6;
+      background: #e4daff;
+      color: #5433d6;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
     }
-    .section h2 { max-width: 620px; color: var(--navy); font-size: clamp(30px, 4vw, 46px); letter-spacing: -.04em; }
+    .section h2 { max-width: 640px; color: var(--navy); font-size: clamp(30px, 4vw, 44px); letter-spacing: -.035em; }
     .section-intro { max-width: 400px; color: var(--muted); font-size: 15px; }
 
     /* 1. TENTANG */
     .about-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 20px; align-items: stretch; }
-    .about-main, .about-pillar { border: 1.5px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
+    .about-main, .about-pillar { border: 2px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
     .about-main { padding: 34px; }
     .about-main h3 { max-width: 680px; margin-bottom: 15px; color: var(--navy); font-size: 26px; letter-spacing: -.03em; }
     .about-main p { max-width: 720px; color: var(--muted); font-size: 15px; }
     .about-main p + p { margin-top: 12px; }
     .about-pillar { display: grid; grid-template-columns: 1fr; overflow: hidden; }
-    .pillar { display: flex; gap: 15px; padding: 22px 24px; border-bottom: 1px solid var(--line); }
+    .pillar { display: flex; gap: 15px; padding: 22px 24px; border-bottom: 1.5px solid var(--line); }
     .pillar:last-child { border-bottom: 0; }
-    .pillar-icon { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; border-radius: 12px; color: #5b46b5; background: var(--lavender-soft); }
-    .pillar:nth-child(2) .pillar-icon { color: #167a67; background: var(--mint-soft); }
-    .pillar:nth-child(3) .pillar-icon { color: #a82e68; background: var(--pink-soft); }
+    .pillar-icon { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; border-radius: 12px; color: #4c2ec2; background: #e2d7ff; }
+    .pillar:nth-child(2) .pillar-icon { color: #0d5e4e; background: #c5f7ec; }
+    .pillar:nth-child(3) .pillar-icon { color: #961d52; background: #ffd1e6; }
     .pillar h4 { margin-bottom: 4px; color: var(--navy); font-size: 16px; }
     .pillar p { color: var(--muted); font-size: 12.5px; }
 
@@ -441,33 +445,33 @@
       position: relative;
       min-height: 290px;
       padding: 22px 18px;
-      border: 1.5px solid var(--line);
+      border: 2px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--white);
-      box-shadow: 0 12px 30px rgba(133, 118, 214, 0.07);
+      box-shadow: 0 12px 30px rgba(112, 92, 214, 0.09);
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .method-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
     .step { width: 40px; height: 40px; display: grid; place-items: center; margin-bottom: 22px; border-radius: 12px; font: 700 16px 'Space Grotesk', sans-serif; }
-    .method-card:nth-child(1) .step { color: #3b7be3; background: var(--sky-soft); }
-    .method-card:nth-child(2) .step { color: #167a67; background: var(--mint-soft); }
-    .method-card:nth-child(3) .step { color: #6b4ce6; background: var(--lavender-soft); }
-    .method-card:nth-child(4) .step { color: #a82e68; background: var(--pink-soft); }
-    .method-card:nth-child(5) .step { color: #9c6a0e; background: var(--butter-soft); }
+    .method-card:nth-child(1) .step { color: #2b6fe8; background: #d8eaff; }
+    .method-card:nth-child(2) .step { color: #0d5e4e; background: #c5f7ec; }
+    .method-card:nth-child(3) .step { color: #5433d6; background: #e4daff; }
+    .method-card:nth-child(4) .step { color: #961d52; background: #ffd1e6; }
+    .method-card:nth-child(5) .step { color: #754e06; background: #ffe99e; }
     .method-card h3 { margin-bottom: 10px; color: var(--navy); font-size: 20px; }
     .method-card p { color: var(--muted); font-size: 12.5px; line-height: 1.55; }
-    .method-tag { display: inline-block; margin-top: 16px; padding: 5px 10px; border-radius: 999px; color: #5b46b5; background: var(--lavender-soft); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .method-tag { display: inline-block; margin-top: 16px; padding: 5px 10px; border-radius: 999px; color: #4c2ec2; background: #e4daff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 
     /* 3. PERAN SDGS */
     .sdgs-section {
-      margin-top: 96px;
+      margin-top: 92px;
       padding: 78px 0 82px;
       background:
-        radial-gradient(circle at 15% 20%, rgba(107, 227, 200, 0.25) 0%, transparent 45%),
-        radial-gradient(circle at 85% 80%, rgba(255, 158, 199, 0.25) 0%, transparent 45%),
-        linear-gradient(135deg, #eef6ff 0%, #f5eeff 50%, #fff0f7 100%);
-      border-top: 1.5px solid var(--line);
-      border-bottom: 1.5px solid var(--line);
+        radial-gradient(circle at 15% 20%, rgba(46, 196, 166, 0.3) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(244, 93, 156, 0.3) 0%, transparent 45%),
+        linear-gradient(135deg, #e3f0ff 0%, #efe6ff 50%, #ffe6f2 100%);
+      border-top: 2px solid var(--line);
+      border-bottom: 2px solid var(--line);
     }
     .sdg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .sdg-card {
@@ -475,9 +479,9 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 28px;
-      border: 1.5px solid var(--white);
+      border: 2px solid var(--white);
       border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.96);
       box-shadow: var(--shadow);
       transition: transform .2s ease;
     }
@@ -494,20 +498,20 @@
       justify-content: center;
       color: var(--white);
       font-family: 'Space Grotesk', sans-serif;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
     }
     .sdg-logo-box strong { font-size: 20px; line-height: 1; }
     .sdg-logo-box i { font-size: 18px; margin-top: 4px; }
-    .sdg-3 { background: linear-gradient(135deg, #4c9f38, #6cc058); }
-    .sdg-4 { background: linear-gradient(135deg, #c5192d, #e44256); }
-    .sdg-16 { background: linear-gradient(135deg, #00689d, #248ec4); }
+    .sdg-3 { background: linear-gradient(135deg, #3f912c, #5cb847); }
+    .sdg-4 { background: linear-gradient(135deg, #b81427, #dc374b); }
+    .sdg-16 { background: linear-gradient(135deg, #005b8a, #1d83b8); }
     .sdg-card h3 { color: var(--navy); font-size: 20px; }
     .sdg-card p { color: var(--muted); font-size: 13.5px; margin-bottom: 14px; }
     .sdg-card small {
       display: inline-block;
       padding: 5px 10px;
       border-radius: 8px;
-      background: var(--sky-soft);
+      background: #dceaff;
       color: var(--navy);
       font-size: 10.5px;
       font-weight: 700;
@@ -515,49 +519,20 @@
       text-transform: uppercase;
     }
 
-    /* INSTAGRAM FEED HIGHLIGHTS */
-    .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .ig-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 24px;
-      border: 1.5px solid var(--line);
-      border-radius: var(--radius-md);
-      background: var(--white);
-      box-shadow: 0 10px 26px rgba(133, 118, 214, 0.06);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .ig-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .ig-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .ig-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      border-radius: 999px;
-      color: #c13584;
-      background: var(--pink-soft);
-      font: 700 11px 'Space Grotesk', sans-serif;
-    }
-    .ig-card h3 { color: var(--navy); font-size: 18px; margin-bottom: 8px; }
-    .ig-card p { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
-    .ig-card .btn { min-height: 40px; font-size: 12px; color: var(--white); background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); box-shadow: 0 6px 16px rgba(193, 53, 132, 0.25); }
-
-    /* 4. VIDEO DIGI SHELTER / WA-CAST (5 EPISODE) */
+    /* 4. VIDEO DIGI SHELTER / WA-CAST */
     .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .video-card {
       position: relative;
-      min-height: 215px;
+      min-height: 225px;
       padding: 24px;
-      border: 1.5px solid var(--line);
+      border: 2px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--white);
-      box-shadow: 0 10px 26px rgba(133, 118, 214, 0.06);
+      box-shadow: 0 10px 26px rgba(112, 92, 214, 0.08);
     }
     .video-card.active {
-      border-color: #ffc7df;
-      background: linear-gradient(145deg, #fff0f7 0%, #f5eeff 100%);
+      border-color: #f8b4d2;
+      background: linear-gradient(145deg, #ffe7f2 0%, #efe6ff 100%);
       box-shadow: var(--shadow);
     }
     .video-number {
@@ -566,32 +541,64 @@
       justify-content: center;
       min-width: 64px;
       height: 28px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       padding: 0 12px;
       border-radius: 999px;
-      color: #a82e68;
-      background: var(--pink-soft);
+      color: #961d52;
+      background: #ffd1e6;
       font: 700 11px 'Space Grotesk', sans-serif;
       letter-spacing: .08em;
     }
-    .video-card.active .video-number { color: var(--white); background: linear-gradient(135deg, #ff7eb3, #a488fc); }
-    .video-card h3 { margin-bottom: 9px; color: var(--navy); font-size: 21px; }
+    .video-card.active .video-number { color: var(--white); background: linear-gradient(135deg, #f25798, #8360f8); }
+    .video-card h3 { margin-bottom: 9px; color: var(--navy); font-size: 19px; }
     .video-card p { color: var(--muted); font-size: 13px; }
-    .video-card .coming { position: absolute; top: 24px; right: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .video-card .coming { position: absolute; top: 24px; right: 22px; color: #8796b8; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
     .video-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
-    .video-actions .btn { min-height: 40px; color: var(--white); background: linear-gradient(135deg, #ff758c, #ff7eb3); font-size: 12px; box-shadow: 0 8px 18px rgba(255, 117, 140, 0.25); }
-    .video-card:not(.active)::after { content: 'SEGERA HADIR'; position: absolute; right: 22px; bottom: 22px; color: #9aa7c4; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+    .video-actions .btn { min-height: 40px; color: var(--white); background: linear-gradient(135deg, #eb4d78, #f26ba6); font-size: 12px; box-shadow: 0 8px 18px rgba(235, 77, 120, 0.28); }
+    .video-card:not(.active)::after { content: 'SEGERA HADIR'; position: absolute; right: 22px; bottom: 22px; color: #8796b8; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
 
-    /* 5. GAMES */
-    .game-card { overflow: hidden; border: 1.5px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
-    .game-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 27px 30px 21px; }
+    /* 5. GAMES INTERAKTIF (3 GAME) */
+    .game-card { overflow: hidden; border: 2px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
+    .game-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding: 27px 30px 18px; }
     .game-top h3 { color: var(--navy); font-size: 25px; }
-    .game-top p { max-width: 650px; margin-top: 7px; color: var(--muted); font-size: 13px; }
-    .game-badge { padding: 8px 14px; border-radius: 999px; color: #167a67; background: var(--mint-soft); font-size: 11px; font-weight: 700; white-space: nowrap; }
-    .game-frame { margin: 0 14px 14px; padding: 8px; border: 1px solid var(--line); border-radius: 18px; background: var(--sky-soft); }
+    .game-top p { max-width: 660px; margin-top: 7px; color: var(--muted); font-size: 13.5px; }
+    .game-badge { padding: 8px 14px; border-radius: 999px; color: #0d5e4e; background: #c5f7ec; font-size: 11px; font-weight: 700; white-space: nowrap; }
+
+    .game-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 30px 20px;
+    }
+    .game-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 2px solid #d5c7fc;
+      background: #f6f1ff;
+      color: var(--navy);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .game-tab-btn:hover {
+      background: #e9dfff;
+      transform: translateY(-1px);
+    }
+    .game-tab-btn.active {
+      color: var(--white);
+      border-color: transparent;
+      background: linear-gradient(135deg, #3f82f6 0%, #8360f8 60%, #f25798 100%);
+      box-shadow: 0 8px 18px rgba(131, 96, 248, 0.32);
+    }
+
+    .game-frame { margin: 0 14px 14px; padding: 8px; border: 1.5px solid var(--line); border-radius: 18px; background: #e3f0ff; }
     .game-frame iframe { display: block; width: 100%; height: 560px; border: 0; border-radius: 12px; background: var(--white); }
-    .game-fallback { padding: 0 30px 27px; color: var(--muted); font-size: 12px; }
-    .game-fallback a { color: #5b46b5; font-weight: 700; text-decoration: underline; }
+    .game-fallback { padding: 0 30px 27px; color: var(--muted); font-size: 12.5px; display: flex; flex-wrap: wrap; gap: 14px; }
+    .game-fallback a { color: #5433d6; font-weight: 700; text-decoration: underline; }
 
     /* 6. TIM PENGEMBANG */
     .mentor {
@@ -601,63 +608,63 @@
       gap: 22px;
       margin-bottom: 18px;
       padding: 25px 28px;
-      border: 1.5px solid #bcefe3;
+      border: 2px solid #9be8d7;
       border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #ebfbf7 0%, #f3f9ff 100%);
+      background: linear-gradient(135deg, #d7f9f1 0%, #e6f2ff 100%);
     }
     .avatar { width: 64px; height: 64px; display: grid; place-items: center; overflow: hidden; border-radius: 50%; color: var(--navy); background: var(--white); border: 2px solid var(--aurora-mint); font-size: 24px; }
-    .mentor .avatar { width: 76px; height: 76px; color: #167a67; }
+    .mentor .avatar { width: 76px; height: 76px; color: #0d5e4e; }
     .mentor h3 { margin-bottom: 4px; color: var(--navy); font-size: 20px; }
-    .role { color: #167a67; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .role { color: #0d5e4e; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
     .mentor p { max-width: 520px; color: var(--muted); font-size: 13px; }
-    .mentor-badge { padding: 8px 14px; border-radius: 999px; color: #167a67; background: #d4f8ee; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .mentor-badge { padding: 8px 14px; border-radius: 999px; color: #0d5e4e; background: #b9f3e6; font-size: 11px; font-weight: 700; white-space: nowrap; }
     .team-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
     .team-card {
-      min-height: 270px;
+      min-height: 275px;
       padding: 23px 17px;
-      border: 1.5px solid var(--line);
+      border: 2px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--white);
       text-align: center;
-      box-shadow: 0 10px 25px rgba(133, 118, 214, 0.06);
+      box-shadow: 0 10px 25px rgba(112, 92, 214, 0.08);
       transition: transform .2s ease;
     }
     .team-card:hover { transform: translateY(-4px); }
-    .team-card .avatar { width: 66px; height: 66px; margin: 0 auto 15px; border-color: #d6c8ff; color: #5b46b5; background: var(--lavender-soft); }
+    .team-card .avatar { width: 66px; height: 66px; margin: 0 auto 15px; border-color: #c7b4fc; color: #5433d6; background: #ebe3ff; }
     .team-card h4 { min-height: 43px; margin-bottom: 6px; color: var(--navy); font-size: 15px; }
-    .team-card .role { min-height: 34px; color: #6b4ce6; font-size: 10px; }
+    .team-card .role { min-height: 34px; color: #5433d6; font-size: 10px; }
     .team-card p { color: var(--muted); font-size: 12px; }
 
     /* 7. KONTAK */
     .contact-section {
-      margin-top: 96px;
-      padding: 84px 0 80px;
-      background: linear-gradient(180deg, #f5f0ff 0%, #eef6ff 100%);
-      border-top: 1.5px solid var(--line);
+      margin-top: 92px;
+      padding: 84px 0 64px;
+      background: linear-gradient(180deg, #efe8ff 0%, #e3f0ff 100%);
+      border-top: 2px solid var(--line);
     }
     .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .contact-card {
       min-height: 190px;
       padding: 24px;
-      border: 1.5px solid var(--white);
+      border: 2px solid var(--white);
       border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.94);
+      background: var(--white);
       box-shadow: var(--shadow);
       transition: transform .2s ease;
     }
     .contact-card:hover { transform: translateY(-4px); }
     .contact-icon { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 16px; border-radius: 14px; font-size: 19px; }
-    .contact-card:nth-child(1) .contact-icon { color: #5b46b5; background: var(--lavender-soft); }
-    .contact-card:nth-child(2) .contact-icon { color: #c13584; background: var(--pink-soft); }
-    .contact-card:nth-child(3) .contact-icon { color: #e62117; background: #ffeceb; }
-    .contact-card:nth-child(4) .contact-icon { color: #167a67; background: var(--mint-soft); }
+    .contact-card:nth-child(1) .contact-icon { color: #5433d6; background: #e4daff; }
+    .contact-card:nth-child(2) .contact-icon { color: #b52473; background: #ffd1e6; }
+    .contact-card:nth-child(3) .contact-icon { color: #d61b11; background: #ffe0de; }
+    .contact-card:nth-child(4) .contact-icon { color: #0d5e4e; background: #c5f7ec; }
     .contact-card h3 { margin-bottom: 6px; color: var(--navy); font-size: 18px; }
     .contact-card p { margin-bottom: 14px; color: var(--muted); font-size: 12.5px; }
-    .contact-card a { color: #5b46b5; font-size: 13px; font-weight: 700; word-break: break-word; }
+    .contact-card a { color: #5433d6; font-size: 13px; font-weight: 700; word-break: break-word; }
 
-    /* FOOTER DENGAN BLOK PUTIH UTUH & GARIS SEJAJAR DI DALAMNYA */
+    /* FOOTER DENGAN GARIS GRADASI SEJAJAR PERSIS KONTAINER CARD */
     footer {
-      padding: 36px 0 44px;
+      padding: 36px 0 46px;
       color: var(--navy);
       background: var(--white);
       text-align: center;
@@ -675,7 +682,7 @@
       border: 0;
     }
     .footer-center {
-      max-width: 680px;
+      max-width: 720px;
       margin-inline: auto;
       display: flex;
       flex-direction: column;
@@ -687,7 +694,7 @@
       font: 700 20px 'Space Grotesk', sans-serif;
     }
     .footer-brand span {
-      background: linear-gradient(135deg, #4b8df8, #a488fc);
+      background: linear-gradient(135deg, #2b6fe8, #8360f8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -705,28 +712,28 @@
     @media (max-width: 980px) {
       .hero-grid { grid-template-columns: 1fr; gap: 35px; }
       .method { grid-template-columns: repeat(3, 1fr); }
-      .sdg-grid, .ig-grid { grid-template-columns: 1fr; }
+      .sdg-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: repeat(3, 1fr); }
       .contact-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 760px) {
-      .container { width: min(100% - 28px, 600px); }
-      .footer-container { width: min(100% - 28px, 600px); }
+      .container, .footer-container { width: min(100% - 28px, 600px); }
       .nav { min-height: 70px; }
       .menu-toggle { display: block; }
-      .nav-links { display: none; position: absolute; top: 70px; left: 14px; right: 14px; padding: 15px; flex-direction: column; align-items: stretch; gap: 4px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 16px 30px rgba(0,0,0,.08); }
+      .nav-links { display: none; position: absolute; top: 70px; left: 14px; right: 14px; padding: 15px; flex-direction: column; align-items: stretch; gap: 4px; border: 1.5px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 16px 30px rgba(0,0,0,.08); }
       .nav-links.open { display: flex; }
       .nav-links a { display: block; padding: 10px 12px; }
       .nav-cta { display: none; }
       .hero { padding: 38px 0 50px; }
-      .hero-stats, .quick-grid, .method, .team-grid, .about-grid, .contact-grid, .video-grid, .ig-grid { grid-template-columns: 1fr; }
-      .quick-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .hero-stats, .quick-grid, .method, .team-grid, .about-grid, .contact-grid, .video-grid { grid-template-columns: 1fr; }
+      .quick-item { border-right: 0; border-bottom: 1.5px solid var(--line); }
       .quick-item:last-child { border-bottom: 0; }
       .section { padding-top: 72px; }
       .section-heading { display: block; }
       .section-intro { margin-top: 12px; }
       .game-top { display: block; }
       .game-badge { display: inline-block; margin-top: 12px; }
+      .game-tabs { padding: 0 18px 18px; }
       .game-frame iframe { height: 440px; }
       .mentor { grid-template-columns: auto 1fr; }
       .mentor-badge { grid-column: 2; justify-self: start; }
@@ -753,7 +760,6 @@
         <a href="#tentang">Tentang</a>
         <a href="#alur">5 Tahap</a>
         <a href="#sdgs">SDGs</a>
-        <a href="#feed">Feed IG</a>
         <a href="#video">Wa-Cast</a>
         <a href="#games">Games</a>
         <a href="#tim">Tim</a>
@@ -777,12 +783,12 @@
         <div class="hero-top-badges">
           <div class="badge-pill mint"><i class="fa-solid fa-users"></i> WISE Team · SMPN 193 Jakarta</div>
           <div class="badge-pill butter"><i class="fa-solid fa-award"></i> Jakarta SDGs Futuremakers 2026/2027</div>
-          <div class="badge-pill pink"><i class="fa-solid fa-sparkles"></i> Student-Led Advocacy</div>
+          <div class="badge-pill pink"><i class="fa-solid fa-sparkles"></i> Student-Led Education</div>
         </div>
 
         <div class="hero-grid">
           <div>
-            <h1>Suara Siswa Didengar, Nyaman & <span class="aurora-text">Terlindungi!</span></h1>
+            <h1>Inovasi Edukasi Digital Berbasis Aspirasi Siswa Untuk Mewujudkan Lingkungan Sekolah yang <span class="aurora-text">Aman, Inklusif, dan Peduli Kesejahteraan Psikologis</span></h1>
             <p class="hero-copy">Digi Shelter hadir sebagai ruang aman digital yang hangat dan suportif untuk mendukung <strong>kesejahteraan mental, fisik, dan manajemen waktu</strong> seluruh siswa SMPN 193 Jakarta.</p>
             
             <div class="hero-actions">
@@ -829,7 +835,7 @@
 
     <section class="quick-strip" aria-label="Ringkasan program">
       <div class="container quick-grid">
-        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-list-check"></i></div><div><b>5 Tahap Aksi</b><span>Alur advokasi sistematis</span></div></div>
+        <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-list-check"></i></div><div><b>5 Tahap Aksi</b><span>Alur edukasi sistematis</span></div></div>
         <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-people-group"></i></div><div><b>WISE Team</b><span>Penggerak student-led action</span></div></div>
         <div class="quick-item"><div class="quick-icon"><i class="fa-solid fa-globe"></i></div><div><b>SDGs 3, 4 & 16</b><span>Kesehatan, pendidikan & institusi</span></div></div>
       </div>
@@ -839,7 +845,7 @@
     <section class="section container" id="tentang">
       <div class="section-heading">
         <div><div class="kicker">01 · Tentang Digi Shelter</div><h2>Ketika suara siswa punya tempat untuk bertumbuh.</h2></div>
-        <p class="section-intro">Wadah advokasi dan media edukasi digital inklusif yang mengubah aspirasi menjadi dialog, klarifikasi, dan solusi nyata.</p>
+        <p class="section-intro">Wadah edukasi digital inklusif yang mengubah aspirasi menjadi dialog, klarifikasi, dan solusi nyata.</p>
       </div>
       <div class="about-grid">
         <article class="about-main">
@@ -948,42 +954,6 @@
       </div>
     </section>
 
-    <!-- 3.5 INSTAGRAM FEED HIGHLIGHTS -->
-    <section class="section container" id="feed">
-      <div class="section-heading">
-        <div><div class="kicker">03.5 · Digi Shelter Education</div><h2>Kilas konten edukasi dari Instagram @digi_shelter.</h2></div>
-        <p class="section-intro">Eksplorasi wawasan seputar kesehatan mental, ruang aman, dan aksi solutif siswa langsung dari feed kami.</p>
-      </div>
-      <div class="ig-grid">
-        <article class="ig-card">
-          <div>
-            <div class="ig-top"><span class="ig-badge"><i class="fa-brands fa-instagram"></i> Feed IG 01</span></div>
-            <h3>Wawasan & Edukasi Karakter</h3>
-            <p>Konten edukatif interaktif seputar penguatan kesejahteraan psikologis dan kepedulian antar siswa di sekolah.</p>
-          </div>
-          <a class="btn" href="https://www.instagram.com/p/De3w911oInh/?img_index=1" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Lihat Postingan IG 1</a>
-        </article>
-
-        <article class="ig-card">
-          <div>
-            <div class="ig-top"><span class="ig-badge"><i class="fa-brands fa-instagram"></i> Feed IG 02</span></div>
-            <h3>Advokasi & Ruang Aman</h3>
-            <p>Informasi mendalam mengenai program student-led action dan langkah preventif anti-perundungan.</p>
-          </div>
-          <a class="btn" href="https://www.instagram.com/p/DeT5rXJoC9x/?img_index=1" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Lihat Postingan IG 2</a>
-        </article>
-
-        <article class="ig-card">
-          <div>
-            <div class="ig-top"><span class="ig-badge"><i class="fa-brands fa-instagram"></i> Feed IG 03</span></div>
-            <h3>Refleksi & Aksi Siswa</h3>
-            <p>Dokumentasi kegiatan, aspirasi, serta tips manajemen waktu dan kesehatan mental yang seimbang.</p>
-          </div>
-          <a class="btn" href="https://www.instagram.com/p/Ddq8LsmD6Bi/?img_index=1" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Lihat Postingan IG 3</a>
-        </article>
-      </div>
-    </section>
-
     <!-- 4. VIDEO DIGI SHELTER / WA-CAST (5 EPISODE) -->
     <section class="section container" id="video">
       <div class="section-heading">
@@ -1001,28 +971,62 @@
         </article>
         <article class="video-card active">
           <span class="video-number">EPISODE 02</span>
-          <h3>Toxic Parents</h3>
-          <p>Diskusi mendalam dan wawancara interaktif seputar pengaruh dinamika keluarga terhadap kesejahteraan mental siswa.</p>
+          <h3>Keluarga Toxic: Batas Sehat, Luka Emosional & Ruang Pulih Siswa</h3>
+          <p>Mengupas dinamika relasi keluarga yang menekan secara emosional, dampaknya pada fokus belajar remaja, serta langkah membangun batas sehat.</p>
           <div class="video-actions">
-            <a class="btn" href="https://youtu.be/jYIcxdDuGMk" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Tonton Episode 2</a>
+            <a class="btn" href="https://youtu.be/awhMPu-ZwJA?si=hKfICSjhanGOD2ww" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Tonton Episode 2</a>
           </div>
         </article>
-        <article class="video-card"><span class="video-number">EPISODE 03</span><span class="coming">Coming soon</span><h3>Episode 3 Wa-Cast</h3><p>Video sedang dalam tahap produksi dan penyuntingan.</p></article>
+        <article class="video-card active">
+          <span class="video-number">EPISODE 03</span>
+          <h3>Tekanan Sosial pada Remaja: Ekspektasi Teman Sebaya, FOMO & Jati Diri</h3>
+          <p>Membahas bagaimana tuntutan pergaulan, rasa takut tertinggal (FOMO), dan standar sosial memengaruhi kepercayaan diri siswa di sekolah.</p>
+          <div class="video-actions">
+            <a class="btn" href="https://youtu.be/BZM37qWxCZQ?si=ftZetJdSjBHg45so" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Tonton Episode 3</a>
+          </div>
+        </article>
         <article class="video-card"><span class="video-number">EPISODE 04</span><span class="coming">Coming soon</span><h3>Episode 4 Wa-Cast</h3><p>Video sedang dalam tahap produksi dan penyuntingan.</p></article>
         <article class="video-card"><span class="video-number">EPISODE 05</span><span class="coming">Coming soon</span><h3>Episode 5 Wa-Cast</h3><p>Video sedang dalam tahap produksi dan penyuntingan.</p></article>
       </div>
     </section>
 
-    <!-- 5. GAMES -->
+    <!-- 5. GAMES INTERAKTIF -->
     <section class="section container" id="games">
       <div class="section-heading">
         <div><div class="kicker">05 · Segmen Games Interaktif</div><h2>Belajar, berefleksi, lalu bermain bersama.</h2></div>
-        <p class="section-intro">Kuis interaktif Digi Shelter agar pemahaman topik terasa lebih seru dan menyenangkan.</p>
+        <p class="section-intro">Pilih topik kuis interaktif Digi Shelter agar pemahaman isu remaja terasa lebih seru dan berkesan.</p>
       </div>
       <article class="game-card">
-        <div class="game-top"><div><h3>Game Digi Shelter</h3><p>Mainkan langsung di halaman ini tanpa perlu berpindah tab. Jika permainan tidak muncul, gunakan tautan alternatif di bawahnya.</p></div><span class="game-badge"><i class="fa-solid fa-gamepad"></i> Main Sekarang</span></div>
-        <div class="game-frame"><iframe src="https://quiz.zep.us/en/play/5rla1g" title="Game Digi Shelter"></iframe></div>
-        <div class="game-fallback">Game tidak tampil? <a href="https://quiz.zep.us/en/play/5rla1g" target="_blank" rel="noopener">Buka game Digi Shelter di tab baru</a>.</div>
+        <div class="game-top">
+          <div>
+            <h3 id="active-game-title">Game: Pertemanan Toxic di SMP</h3>
+            <p id="active-game-desc">Uji pemahamanmu mengenai batasan pertemanan sehat dan cara mengenali pola relasi yang kurang suportif di lingkungan SMP.</p>
+          </div>
+          <span class="game-badge"><i class="fa-solid fa-gamepad"></i> 3 Game Tersedia</span>
+        </div>
+
+        <div class="game-tabs" role="tablist" aria-label="Pilihan Game Digi Shelter">
+          <button type="button" class="game-tab-btn active" data-url="https://quiz.zep.us/en/play/r7VlLW" data-title="Game: Pertemanan Toxic di SMP" data-desc="Uji pemahamanmu mengenai batasan pertemanan sehat dan cara mengenali pola relasi yang kurang suportif di lingkungan SMP.">
+            <i class="fa-solid fa-user-group"></i> Pertemanan Toxic di SMP
+          </button>
+          <button type="button" class="game-tab-btn" data-url="https://quiz.zep.us/id/play/PJ546n" data-title="Game: Keluarga Toxic" data-desc="Refleksi dan kuis interaktif seputar komunikasi sehat, batas emosi, dan pemulihan diri terkait dinamika keluarga.">
+            <i class="fa-solid fa-house-heart"></i> Keluarga Toxic
+          </button>
+          <button type="button" class="game-tab-btn" data-url="https://quiz.zep.us/id/play/mAbmeg" data-title="Game: Tekanan Sosial pada Remaja" data-desc="Mainkan kuis tentang tekanan pergaulan, FOMO, dan cara menjaga keaslian diri di tengah ekspektasi sosial.">
+            <i class="fa-solid fa-users-rays"></i> Tekanan Sosial pada Remaja
+          </button>
+        </div>
+
+        <div class="game-frame">
+          <iframe id="digi-game-iframe" src="https://quiz.zep.us/en/play/r7VlLW" title="Game Pertemanan Toxic di SMP"></iframe>
+        </div>
+
+        <div class="game-fallback">
+          <span>Buka langsung di tab baru:</span>
+          <a href="https://quiz.zep.us/en/play/r7VlLW" target="_blank" rel="noopener">Game Pertemanan Toxic di SMP</a>
+          <a href="https://quiz.zep.us/id/play/PJ546n" target="_blank" rel="noopener">Game Keluarga Toxic</a>
+          <a href="https://quiz.zep.us/id/play/mAbmeg" target="_blank" rel="noopener">Game Tekanan Sosial pada Remaja</a>
+        </div>
       </article>
     </section>
 
@@ -1037,7 +1041,7 @@
         <div>
           <h3>Syafitri Amriana Sanusi, S.Si</h3>
           <span class="role">Guru Pendamping</span>
-          <p>Membimbing, mengarahkan, dan mendampingi kelancaran proyek advokasi sekolah.</p>
+          <p>Membimbing, mengarahkan, dan mendampingi kelancaran proyek edukasi sekolah.</p>
         </div>
         <span class="mentor-badge">Pendamping Program</span>
       </article>
@@ -1057,8 +1061,8 @@
         <article class="team-card">
           <div class="avatar"><i class="fa-solid fa-code"></i></div>
           <h4>Nararya Nur Hasna</h4>
-          <span class="role">Web Developer & Website Builder</span>
-          <p>Merancang, membangun, dan mengembangkan website Digi Shelter agar interaktif, estetik, dan mudah diakses.</p>
+          <span class="role">Website Builder & Humas</span>
+          <p>Membangun, merancang, dan mengembangkan website Digi Shelter sekaligus menjadi penghubung humas dengan Guru/BK, perizinan wawancara, serta penyampaian hasil.</p>
         </article>
         <article class="team-card">
           <div class="avatar"><i class="fa-solid fa-clapperboard"></i></div>
@@ -1104,7 +1108,7 @@
           <article class="contact-card">
             <div class="contact-icon"><i class="fa-solid fa-school"></i></div>
             <h3>SMPN 193 Jakarta</h3>
-            <p>Pusat kegiatan dan koordinasi program advokasi WISE Team.</p>
+            <p>Pusat kegiatan dan koordinasi program edukasi WISE Team.</p>
             <a href="#home">Jakarta Timur, DKI Jakarta</a>
           </article>
         </div>
@@ -1112,13 +1116,13 @@
     </section>
   </main>
 
-  <!-- FOOTER DENGAN BLOK PUTIH UTUH & GARIS SEJAJAR DI DALAMNYA -->
+  <!-- FOOTER DENGAN GARIS GRADASI SEJAJAR PERSIS KONTAINER CARD -->
   <footer>
     <div class="footer-container">
       <hr class="footer-divider" />
       <div class="footer-center">
         <div class="footer-brand">DIGI SHELTER <span>· SMPN 193 JAKARTA</span></div>
-        <p class="footer-copy">Wadah advokasi digital berbasis student-led action untuk kesehatan mental dan kesejahteraan siswa.</p>
+        <p class="footer-copy">Inovasi Edukasi Digital Berbasis Aspirasi Siswa Untuk Mewujudkan Lingkungan Sekolah yang Aman, Inklusif, dan Peduli Kesejahteraan Psikologis.</p>
         <div class="footer-copyright">
           © 2026/2027 WISE Team — Jakarta SDGs Futuremakers. Hak cipta dilindungi undang-undang.
         </div>
@@ -1126,7 +1130,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT MENU MOBILE & GOATCOUNTER TRACKER -->
+  <!-- SCRIPT MENU MOBILE, SWITCHER GAME INTERAKTIF, & GOATCOUNTER TRACKER -->
   <script>
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -1143,6 +1147,30 @@
         });
       });
     }
+
+    // Interactive Game Switcher
+    const gameButtons = document.querySelectorAll('.game-tab-btn');
+    const gameIframe = document.getElementById('digi-game-iframe');
+    const gameTitle = document.getElementById('active-game-title');
+    const gameDesc = document.getElementById('active-game-desc');
+
+    gameButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        gameButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const url = btn.getAttribute('data-url');
+        const title = btn.getAttribute('data-title');
+        const desc = btn.getAttribute('data-desc');
+
+        if (gameIframe && url) {
+          gameIframe.src = url;
+          gameIframe.title = title || 'Game Digi Shelter';
+        }
+        if (gameTitle && title) gameTitle.textContent = title;
+        if (gameDesc && desc) gameDesc.textContent = desc;
+      });
+    });
   </script>
 
   <!-- GOATCOUNTER VISITOR TRACKER SCRIPT (Nama: digishelter) -->
